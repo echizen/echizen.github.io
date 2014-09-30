@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>{{ page.title }}</title>
+        {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+        <meta name="author" content="{{ site.author.name }}">
+
+        <!-- Enable responsive viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap styles -->
+        <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Custom styles -->
+        <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Fav and touch icons -->
+        <!-- Update these with your own images
+          <link rel="shortcut icon" href="images/favicon.ico">
+          <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+          <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+          <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        -->
+
+        <!-- atom & rss feed -->
+        <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+        <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+        <style type="text/css">
+            html,body,.left_nav,.transbox,.content{
+                height: 100%;
+            }
+
+            body{
+                font-family: 'YouYuan','KaiTi','SimHei';
+                color: #bbb;
+                font-size: 18px;
+            }
+            .left_nav{
+                background: url("{{ ASSET_PATH }}/img/leftBg.jpg");
+                background-repeat: repeat;
+                background-size: cover;
+                width: 21%
+            }
+
+            .transbox{
+                background-color: rgba(255, 255, 255, 0.49);
+            }
+
+            .nav{
+                padding: 20px 0px 0px 40px;
+            }
+            .nav li{
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                text-align: center;
+                box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.67);
+            }
+
+            .nav li:before{
+                box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.2);
+            }
+
+            .nav li:nth-child(1){
+                background-color: rgba(34, 34, 34, 0.89);/*#222222*/
+                margin-left: 75px;
+            }
+
+            .nav li:nth-child(2){
+                background-color: rgba(204, 255, 204, 0.92);/*#CCFFCC*/
+            }
+
+            .nav li:nth-child(3){
+                background-color: rgba(204, 255, 255, 0.94);/*#CCFFFF*/
+                margin-top: 20px;
+            }
+
+            .nav li:nth-child(4){
+                background-color: rgba(204, 204, 255, 0.87);/*#CCCCFF*/
+                margin-left: 75px;
+            }
+
+            .nav li a{
+                color: #fff;
+                height: 130px;
+                line-height: 130px;
+                padding: 0px;
+                font-size: 25px;
+                font-family: "Monaco","Oxygen","Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
+
+            .content{
+                background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
+                background-repeat: repeat;
+                width: 79%;
+            }
+
+            .nav li:hover,.nav li:focus{
+                width: 150px;
+                height: 150px;
+                -webkit-transition: all .8s ease;
+                -moz-transition: all .8s ease;
+                -o-transition: all .8s ease;
+                transition: all .8s ease;
+            }
+
+            .nav li a:hover,.nav li:focus{
+                color: #FF9900;
+                height: 150px;
+                line-height: 150px;
+                padding: 0px;
+                font-size: 30px;
+                background-color: transparent;
+                -webkit-transition: all .8s ease;
+                -moz-transition: all .8s ease;
+                -o-transition: all .8s ease;
+                transition: all .8s ease;
+            }
+
+            .motto{
+                margin-top: 20px;
+                font-size: 30px;
+                font-weight: 700;
+                color: #009966;
+                text-shadow: 5px 5px 5px #666;
+                text-align: center;
+            }
+
+            .title_wrap{
+                background-color: rgba(255, 255, 255, 0.52);
+                font-size: 20px;
+                padding: 5px 40px;
+                color: #fff;
+                height: 7%;
+            }
+
+            .title_wrap img{
+                width: 50px;
+            }
+
+            .what{
+                text-shadow: 1px 1px 1px #000;
+                padding:20px;
+                overflow-y: scroll;
+                height: 93%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="col-md-3 left_nav">
+            <div class="row transbox">
+                <ul class="nav">
+                    {% assign pages_list = site.pages %}
+                    {% assign group = 'navigation' %}
+                    {% include JB/pages_list %}
+                    <!-- <li><a href="#">tech</a></li>
+                    <li><a href="#">life</a></li>
+                    <li><a href="#">link</a></li>
+                    <li><a href="#">more</a></li> -->
+                </ul>
+
+                <div class="col-md-12 motto">
+                    有一种美<br/>
+                    叫做恰到好处
+                </div>
+            </div>
+        </div>
+
+       <div class="col-md-9 content">
+            <!-- <div class="row title_wrap">
+                <span class="title_img">
+                    <img src="{{ ASSET_PATH }}/img/title.png">
+                </span>
+                <span class="title">
+                    
+                </span>
+            </div>
+
+            <div class="what"> -->
+                {{ content }}
+            <!-- </div> -->
+            <hr>
+            <footer>
+                <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
+                  with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+                  and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+                </p>
+            </footer>
+       </div>
+
+<!--     <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <ul class="nav">
+            {% assign pages_list = site.pages %}
+            {% assign group = 'navigation' %}
+            {% include JB/pages_list %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        {{ content }}
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>-->
+
+    {% include JB/analytics %} 
+    </body>
+</html>
