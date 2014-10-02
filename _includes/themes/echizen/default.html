@@ -37,7 +37,7 @@
         <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
         <style type="text/css">
-            html,body,.left_nav,.transbox,.content{
+            html,body,.left_nav,.transbox{
                 height: 100%;
             }
 
@@ -45,6 +45,8 @@
                 font-family: 'YouYuan','KaiTi','SimHei';
                 color: #bbb;
                 font-size: 18px;
+                background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
+                background-repeat: repeat;
             }
             .left_nav{
                 background: url("{{ ASSET_PATH }}/img/leftBg.jpg");
@@ -101,8 +103,8 @@
             }
 
             .content{
-                background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
-                background-repeat: repeat;
+                /*background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
+                background-repeat: repeat;*/
                 width: 79%;
             }
 
