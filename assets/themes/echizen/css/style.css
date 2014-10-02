@@ -1,13 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Advent+Pro);
-@import url(http://fonts.googleapis.com/css?family=Oxygen);
+/*@import url(http://fonts.googleapis.com/css?family=Advent+Pro);
+@import url(http://fonts.googleapis.com/css?family=Oxygen);*/
 /* Partials */
 /* Theme Vars */
 /* Compass Vars */
 /* Override some defaults */
 /* line 13, ../_sass/_base.scss */
 html, body {
-  background-color: #2a2a2a;
-  background: url(../images/bgs/body.png) repeat;
+  /*background-color: #2a2a2a;
+  background: url(../images/bgs/body.png) repeat;*/
 }
 
 /* line 18, ../_sass/_base.scss */
