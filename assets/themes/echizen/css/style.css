@@ -398,3 +398,14 @@ code, pre {
   background-color: rgba(0, 0, 0, 0.3);
   border: none;
 }
+
+footer{
+  font-size: 14px;
+  text-align: center;
+  padding-top: 20px;
+  border-top: #666 solid 1px;
+}
+
+footer a{
+  color: #bbb;
+}
