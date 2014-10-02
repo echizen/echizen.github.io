@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 35, ../_sass/_base.scss */
 a {
-  color: #4cb4e8;
+  color: #33CCFF;
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   -ms-transition: all 0.3s;
@@ -40,7 +40,7 @@ a {
 }
 /* line 37, ../_sass/_base.scss */
 a:hover {
-  color: #d4edf9;
+  color: #66FFFF;
   text-decoration: none;
 }
 
@@ -387,4 +387,14 @@ div.posts article div.date time {
   -o-border-radius: 5px;
   border-radius: 5px;
   padding: 5px 10px;
+}
+
+code, pre {
+  -moz-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  box-shadow: rgba(255, 255, 255, 0.1) 0 1px 0, rgba(0, 0, 0, 0.8) 0 1px 7px 0px inset;
+  background: #202020;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
 }
