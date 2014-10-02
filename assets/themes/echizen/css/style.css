@@ -23,7 +23,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: normal;
-  color: #999;
+  color: #ccc;
   text-rendering: optimizelegibility;
   font-family: 'Advent Pro', sans-serif;
   /*font-family: 'Pontano Sans', sans-serif;*/
@@ -52,7 +52,13 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 
 /* line 49, ../_sass/_base.scss */
 h1, h2 {
-  margin: 0 0 15px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+h3,h4{
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 /* line 53, ../_sass/_base.scss */
