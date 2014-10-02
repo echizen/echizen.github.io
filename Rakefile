@@ -134,7 +134,7 @@ namespace :theme do
       puts "Generating '#{theme_name}' layout: #{File.basename(filename)}"
 
       open(File.join(CONFIG['layouts'], File.basename(filename)), 'w') do |page|
-        #if File.basename(filename, ".html").downcase == "default"
+        # if File.basename(filename, ".html").downcase == "default"
         #   page.puts "---"
         #   page.puts File.read(settings_file) if File.exist?(settings_file)
         #   page.puts "---"
@@ -142,7 +142,7 @@ namespace :theme do
         #   page.puts "---"
         #   page.puts "layout: default"
         #   page.puts "---"
-        #end 
+        # end 
         page.puts "---"
         page.puts File.read(settings_file) if File.exist?(settings_file)
         page.puts "layout: default" unless File.basename(filename, ".html").downcase == "default"
