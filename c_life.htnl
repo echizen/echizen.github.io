@@ -1,0 +1,10 @@
+---
+layout: page
+title: Life
+header: Posts By Life
+group: navigation
+---
+{% include JB/setup %}
+
+{% assign posts_collate = site.categories.Life %}
+{% include JB/posts_collate %}
