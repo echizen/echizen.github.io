@@ -1,0 +1,171 @@
+---
+layout: page
+title: blog_index
+tagline: Supporting tagline
+---
+{% include JB/setup %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>折腾的blog</title>
+        <meta name="description" content="">
+        <meta name="author" content="echizen">
+
+        <!-- Enable responsive viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Le styles -->
+        <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Le fav and touch icons -->
+      <!-- Update these with your own images
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+      -->
+
+        <!-- atom & rss feed -->
+        <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+        <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+        <style type="text/css">
+            /*html,body,.left_nav,.transbox,.content{
+                height: 100%;
+            }*/
+
+            body{
+                font-family: 'KaiTi','SimHei';
+                background: url('{{ ASSET_PATH }}/img/indexBg.png') repeat;
+                color: #bbb;
+                font-size: 18px;
+            }
+
+            .nav li{
+                width: 130px;
+                height: 130px;
+                border-radius: 50%;
+                text-align: center;
+                box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.67);
+            }
+
+            .index_pic img{
+                width: 300px;
+                display: block;
+                margin: 0px auto;
+            }
+
+            .name{
+                margin-top: 50px;
+                margin-bottom: 10px;
+                font-size: 30px;
+                font-weight: 700;
+                text-align: center;
+                color: #666;
+            }
+
+            /*.tranbox{
+                background-color: rgba(255, 255, 255, 0.49);
+            }*/
+
+            .nav{
+                margin-top:50px;
+                width: 770px;
+            }
+
+            .nav li{
+                float: left;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+
+            .nav li:before{
+                box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.2);
+            }
+
+            .nav li:nth-child(1){
+                background-color: rgba(34, 34, 34, 0.89);/*#222222*/
+            }
+
+            .nav li:nth-child(2){
+                background-color: rgba(102, 255, 255, 0.79);/*#CCFFCC*/
+            }
+
+            .nav li:nth-child(3){
+                background-color: rgba(102, 204, 102, 0.8);/*#CCFFFF*/
+            }
+
+            .nav li:nth-child(4){
+                background-color: rgba(204, 204, 255, 0.87);/*#CCCCFF*/
+            }
+
+            .nav li:nth-child(5){
+                background-color: rgba(255, 204, 255, 0.82);/*#CCCCFF*/
+            }
+
+            .nav li a{
+                color: #fff;
+                height: 130px;
+                line-height: 130px;
+                padding: 0px;
+                font-size: 25px;
+                display: block;
+                font-family: "Monaco","Oxygen","Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
+
+            .nav li:hover,.nav li:focus{
+                width: 150px;
+                height: 150px;
+                -webkit-transition: all .8s ease;
+                -moz-transition: all .8s ease;
+                -o-transition: all .8s ease;
+                transition: all .8s ease;
+            }
+
+            .nav li a:hover,.nav li:focus{
+                color: #FF9900;
+                height: 150px;
+                line-height: 150px;
+                padding: 0px;
+                font-size: 30px;
+                text-decoration: none;
+                background-color: transparent;
+                -webkit-transition: all .8s ease;
+                -moz-transition: all .8s ease;
+                -o-transition: all .8s ease;
+                transition: all .8s ease;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="col-md-12 tranbox">
+            <div class="col-md-12 name">
+                折腾的blog
+            </div>
+
+            <div class="col-md-12 index_pic">
+                <img class="img-rounded" src="{{ ASSET_PATH }}/img/main_pic.jpg">
+            </div>
+
+            <div class="col-md-12">
+                <div class="nav center-block">
+                    {% assign pages_list = site.pages %}
+                    {% assign group = 'navigation' %}
+                    {% include JB/pages_list %}
+
+                    <div class="nav_list">
+                        <a href="/archive.html">archive</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
