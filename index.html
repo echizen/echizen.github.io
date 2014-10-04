@@ -1,6 +1,9 @@
 ---
-layout: page
+<!-- layout: page -->
 title: blog_index
+tagline: Supporting tagline
+theme :
+   name : echizen
 ---
 {% include JB/setup %}
 
@@ -81,8 +84,8 @@ title: blog_index
 
             .nav li{
                 float: left;
-                margin-left: 10px;
-                margin-right: 10px;
+                margin-left: 12px;
+                margin-right: 12px;
             }
 
             .nav li:before{
@@ -122,6 +125,8 @@ title: blog_index
             .nav li:hover,.nav li:focus{
                 width: 150px;
                 height: 150px;
+                margin-left: 2px;
+                margin-right: 2px;
                 -webkit-transition: all .8s ease;
                 -moz-transition: all .8s ease;
                 -o-transition: all .8s ease;
@@ -161,7 +166,7 @@ title: blog_index
                     {% include JB/pages_list %}
 
                     <li>
-                        <a href="/archive.html">archive</a>
+                        <a href="/e_archive.html">archive</a>
                     </li>
                 </div>
             </div>

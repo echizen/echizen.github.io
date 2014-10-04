@@ -48,7 +48,7 @@
                 background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
                 background-repeat: repeat;
             }
-            .left_nav{
+/*            .left_nav{
                 background: url("{{ ASSET_PATH }}/img/leftBg.jpg");
                 background-repeat: repeat;
                 background-size: cover;
@@ -62,7 +62,7 @@
 
             .nav{
                 padding: 20px 0px 0px 40px;
-            }
+            }*/
             .nav li{
                 width: 130px;
                 height: 130px;
@@ -110,8 +110,8 @@
             .content{
                 /*background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
                 background-repeat: repeat;*/
-                width: 79%;
-                margin-left: 21%;
+                /*width: 79%;
+                margin-left: 21%;*/
             }
 
             .nav li:hover,.nav li:focus{
@@ -136,14 +136,14 @@
                 transition: all .8s ease;
             }
 
-            .motto{
+/*            .motto{
                 margin-top: 20px;
                 font-size: 30px;
                 font-weight: 700;
                 color: #66FF99;
                 text-shadow: 5px 5px 5px #666;
                 text-align: center;
-            }
+            }*/
 
             .title_wrap{
                 background-color: rgba(255, 255, 255, 0.52);
@@ -167,26 +167,18 @@
     </head>
 
     <body>
-        <div class="col-md-3 left_nav">
-            <div class="row transbox">
                 <ul class="nav">
                     {% assign pages_list = site.pages %}
                     {% assign group = 'navigation' %}
                     {% include JB/pages_list %}
-                    <!-- <li><a href="#">tech</a></li>
-                    <li><a href="#">life</a></li>
-                    <li><a href="#">link</a></li>
-                    <li><a href="#">more</a></li> -->
                 </ul>
 
-                <div class="col-md-12 motto">
+                <!-- <div class="col-md-12 motto">
                     有一种美<br/>
                     叫做恰到好处
-                </div>
-            </div>
-        </div>
+                </div> -->
 
-       <div class="col-md-9 content">
+       <div class="col-md-12 content">
             <!-- <div class="row title_wrap">
                 <span class="title_img">
                     <img src="{{ ASSET_PATH }}/img/title.png">
