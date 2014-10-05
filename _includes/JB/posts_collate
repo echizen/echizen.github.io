@@ -16,7 +16,7 @@ Usage:
         => 'post.next.date'
         
 -->{% endcomment %}
-
+<div class="col-md-12 time_line">
 {% if site.JB.posts_collate.provider == "custom" %}
   {% include custom/posts_collate %}
 {% else %}
@@ -27,29 +27,63 @@ Usage:
     {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
   
     {% if forloop.first %}
-      <h2>{{this_year}}</h2>
-      <h3>{{this_month}}</h3>
-      <ul>
+      <div class="row">
+        <div class="article_year">
+                <img src="{{ ASSET_PATH }}/img/title.png">
+        </div>
+        <h2 style="float:left;">{{this_year}}</h2>
+      </div>
+
+      <div class="row">
+        <div class="article_month">
+                <img src="{{ ASSET_PATH }}/img/title.png">
+        </div>
+        <h3>{{this_month}}</h3>
+      </div>
+      <div class="row">
     {% endif %}
   
-    <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+        <div class="col-md-4 list_article_wrap">
+          <div class="list_article">
+                <span class="glyphicon glyphicon-send" style="padding-right: 15px;color: #fff;"></span>
+                <span class="article_title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></span>
+              <div class="title_time">{{ post.date | date: "%B %e, %Y" }} </div>
+          </div>
+        </div>
   
     {% if forloop.last %}
-      </ul>
+      </div>
     {% else %}
       {% if this_year != next_year %}
-        </ul>
-        <h2>{{next_year}}</h2>
-        <h3>{{next_month}}</h3>
-        <ul>
+        </div>
+        <div class="row">
+          <div class="article_year">
+                <img src="{{ ASSET_PATH }}/img/title.png">
+          </div>
+          <h2 style="float:left;">{{next_year}}</h2>
+        </div>
+
+        <div class="row">
+          <div class="article_month">
+                  <img src="{{ ASSET_PATH }}/img/title.png">
+          </div>
+          <h3 >{{next_month}}</h3>
+        </div>
+        <div class="row">
       {% else %}    
         {% if this_month != next_month %}
-          </ul>
-          <h3>{{next_month}}</h3>
-          <ul>
+          </div>
+          <div class="row">
+            <div class="article_month">
+                    <img src="{{ ASSET_PATH }}/img/title.png">
+            </div>
+            <h3 >{{next_month}}</h3>
+          </div>
+          <div class="row">
         {% endif %}
       {% endif %}
     {% endif %}
   {% endfor %}
 {% endif %}
 {% assign posts_collate = nil %}
+</div>

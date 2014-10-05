@@ -1,11 +1,11 @@
-<div class="row title_wrap">
-        <span class="title_img">
-            <img src="{{ ASSET_PATH }}/img/title.png">
-        </span>
-        <span class="title">
-            {{ page.title }}
-        </span>
-    </div>
+<div class="title_wrap">
+    <span class="title_img">
+        <img src="{{ ASSET_PATH }}/img/title.png">
+    </span>
+    <span class="title">
+        {{ page.title }}
+    </span>
+</div>
 
 <div class="row post-full what">
   <div class="col-xs-12">
@@ -32,7 +32,7 @@
     </ul>
   {% endunless %}  
   
-    <hr>
+    
     <ul class="pagination">
     {% if page.previous %}
       <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
@@ -46,7 +46,7 @@
       <li class="next disabled"><a>Next &rarr;</a>
     {% endif %}
     </ul>
-    <hr>
+    
     {% include JB/comments %}
   </div>
 </div>

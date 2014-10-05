@@ -37,7 +37,7 @@
         <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
 
         <style type="text/css">
-            html,body,.left_nav,.transbox{
+            html,body{
                 height: 100%;
             }
 
@@ -45,8 +45,15 @@
                 /*font-family: 'YouYuan','KaiTi','SimHei';*/
                 color: #bbb;
                 font-size: 18px;
+                
+            }
+
+            .bg{
                 background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
                 background-repeat: repeat;
+                width: 100%;
+                height: 100%;
+                position:fixed;
             }
 /*            .left_nav{
                 background: url("{{ ASSET_PATH }}/img/leftBg.jpg");
@@ -64,13 +71,14 @@
                 padding: 20px 0px 0px 40px;
             }*/
             .nav li{
-                width: 130px;
-                height: 130px;
+                width: 100px;
+                height: 100px;
                 border-radius: 50%;
                 text-align: center;
                 -webkit-box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.67);
                 -moz-box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.67);
                 box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.67);
+                position: fixed;
             }
 
             .nav li:before{
@@ -80,55 +88,76 @@
             }
 
             .nav li:nth-child(1){
-                background-color: rgba(34, 34, 34, 0.89);/*#222222*/
-                margin-left: 75px;
+                background-color: rgba(34, 34, 34, 0.15);/*#222222*/
+                top: 160px;
+                left: 50px;
             }
 
             .nav li:nth-child(2){
-                background-color: rgba(204, 255, 204, 0.92);/*#CCFFCC*/
+                background-color: rgba(204, 255, 204, 0.47);/*#CCFFCC*/
+                top: 420px;
+                left: 10px;
             }
 
             .nav li:nth-child(3){
-                background-color: rgba(204, 255, 255, 0.94);/*#CCFFFF*/
+                background-color: rgba(204, 255, 255, 0.5);/*#CCFFFF*/
                 margin-top: 20px;
+                top: 160px;
+                right: 50px;
             }
 
             .nav li:nth-child(4){
-                background-color: rgba(204, 204, 255, 0.87);/*#CCCCFF*/
+                background-color: rgba(204, 204, 255, 0.35);/*#CCCCFF*/
                 margin-left: 75px;
+                top: 420px;
+                right: 10px;
             }
 
             .nav li a{
                 color: #fff;
-                height: 130px;
-                line-height: 130px;
+                height: 100px;
+                line-height: 100px;
                 padding: 0px;
-                font-size: 25px;
+                font-size: 20px;
                 font-family: "Monaco","Oxygen","Helvetica Neue",Helvetica,Arial,sans-serif;
+                text-shadow: none;
             }
 
-            .content{
-                /*background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
-                background-repeat: repeat;*/
-                /*width: 79%;
-                margin-left: 21%;*/
+            .content_wrap{
+                position: relative;
             }
 
-            .nav li:hover,.nav li:focus{
-                width: 150px;
-                height: 150px;
+            @media (min-width: 768px){
+                .content_wrap {
+                    width: 580px;
+                }
+            }
+            @media (min-width: 992px){
+                .content_wrap {
+                    width: 800px;
+                }
+            }
+            @media (min-width: 1200px){
+                .content_wrap {
+                    width: 1000px;
+                }
+            }
+
+            .nav li:hover,.nav li:focus,.nav li.active{
+                width: 120px;
+                height: 120px;
                 -webkit-transition: all .8s ease;
                 -moz-transition: all .8s ease;
                 -o-transition: all .8s ease;
                 transition: all .8s ease;
             }
 
-            .nav li a:hover,.nav li:focus{
+            .nav li a:hover,.nav li:focus,.nav li.active a{
                 color: #FF9900;
-                height: 150px;
-                line-height: 150px;
+                height: 120px;
+                line-height: 120px;
                 padding: 0px;
-                font-size: 30px;
+                font-size: 25px;
                 background-color: transparent;
                 -webkit-transition: all .8s ease;
                 -moz-transition: all .8s ease;
@@ -146,12 +175,20 @@
             }*/
 
             .title_wrap{
-                background-color: rgba(255, 255, 255, 0.52);
+                -webkit-box-shadow: inset 0px 0px 70px 10px #CCFFCC;
+                -moz-box-shadow: inset 0px 0px 70px 10px #CCFFCC;
+                box-shadow: inset 0px 0px 70px 10px #CCFFCC;
                 font-size: 20px;
                 height: 50px;
                 line-height: 50px;
                 padding-left: 25px;
                 color: #fff;
+                z-index: 10;
+                position: fixed;
+                width: 100%;
+                left: 0px;
+                right: 0px;
+                text-align: center;
             }
 
             .title_wrap img{
@@ -159,14 +196,23 @@
                 box-shadow: none;
             }
 
+            .title_wrap{
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
             .what{
                 text-shadow: 1px 1px 1px #000;
-                padding:20px;
+                margin-top: 70px;
+                margin-bottom: 30px;
             }
         </style>
     </head>
 
     <body>
+        <div class="bg">
+            
+        </div>
                 <ul class="nav">
                     {% assign pages_list = site.pages %}
                     {% assign group = 'navigation' %}
@@ -178,7 +224,7 @@
                     叫做恰到好处
                 </div> -->
 
-       <div class="col-md-12 content">
+       <div class="container content_wrap">
             <!-- <div class="row title_wrap">
                 <span class="title_img">
                     <img src="{{ ASSET_PATH }}/img/title.png">
