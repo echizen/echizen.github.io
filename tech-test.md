@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "About"
+title: "Tech Test"
 description: ""
 ---
 {% include JB/setup %}

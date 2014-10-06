@@ -42,14 +42,15 @@ Usage:
       </div>
       <div class="row">
     {% endif %}
-  
+      <a href="{{ BASE_PATH }}{{ post.url }}">
         <div class="col-md-4 list_article_wrap">
           <div class="list_article">
                 <span class="glyphicon glyphicon-send" style="padding-right: 15px;color: #fff;"></span>
-                <span class="article_title"><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></span>
+                <span class="article_title">{{ post.title }}</span>
               <div class="title_time">{{ post.date | date: "%B %e, %Y" }} </div>
           </div>
         </div>
+      </a>
   
     {% if forloop.last %}
       </div>

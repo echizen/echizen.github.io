@@ -1,6 +1,6 @@
 # This is the default format. 
 # For more see: http://jekyllrb.com/docs/permalinks/
-permalink: /:categories/:year/:month/:day/:title 
+permalink: /:categories/:year/:month-:day-:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 highlighter: pygments
@@ -76,7 +76,7 @@ JB :
   atom_path : /atom.xml
   rss_path : /rss.xml
   tech_path: /a_tech.html
-  think_path: /b_thinker.html
+  think_path: /b_think.html
   life_path: /c_life.html
   show_path: /d_show.html
 
