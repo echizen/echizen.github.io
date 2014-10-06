@@ -50,10 +50,11 @@ tags: []
 
 一般写博客都是用这句，这句代码会在 `_post\` 文件夹下新建一个文件，文件名由 _config.yml 里的`permalink: /:categories/:year-:month-:day-:title `的配置决定，都说文件名不要取中文，jekyll系统会把文件名中的中文过滤掉，由于文章中会有title的设置，所以不用中文命名也不是什么痛苦的事啦。
 
->`permalink:`的配置不是随心所欲的，目前只支持三种配置：  
-![image](https://echizen.github.io/assets/blog-img/QQ20141006-1.png)
-也就是说无论你是`permalink: /:categories/:year-:month-:day-:title `还是什么，都只能显示三种效果，可以简洁的用`permalink: date`这种形式配置。
+>`permalink:`的配置中的`/`不是真的文件夹部署，只是url上的显示，其实如果是真的文件夹分布就完美了。目前支持三种默认的配置，可以简洁的用`permalink: date`这种形式配置。
 
+![image](https://echizen.github.io/assets/blog-img/QQ20141006-1.png)
+
+也就是说无论你是`permalink: /:categories/:year-:month-:day-:title `还是什么，都只能显示三种效果，
 ###2、修改头信息
 打开新建的那个文件，新建的文件终端都会输出新建的文件路径，所以只用`open`命令就可以很轻松的用默认的编辑器打开该文件了。（Mac下是Mou打开markdown文件）
 
@@ -80,17 +81,19 @@ title:真正的会在归档等地方显示的页面标题。
 
 description:为了SEO优化，方便搜索引擎搜到，最好写一点。
 
-category:文章所在的分类。
+category:文章所在的分类，像我的博客是以category分页面展示的，这时候这个参数就非常重要。
 
 tags:给文章打上标签，和category一样，这样两个都是要在页面模板上有处理时才方便。
 
->一直想用命令行打标签，在新建一篇博客时就打上，查了一下，还没有找到此方法。后来在文章中改的都对`permalink: /:categories/:year-:month-:day-:title `无效了。不能按分类的文件夹存放文件真不利索。
 
 ###3、发布博客
 这一步在我的电脑上不需要，我在本地手动新建的文件，不用`git add`、`git commit`就能`jekyll server`后在本地访问，除了修改`_config.yml`这种比较系统的文件需要`git push origin master`之外，其他的变动远程也会同步。。。这个情况我不太明白我clone的jekyll都是以什么规则自动同步的。养成一个好的习惯，建议大家每次有变动时还是同步一下。
 
-如果是新增：git add XXX -> git commit -m 'add XXX'
+如果是新增：`git add XXX -> git commit -m 'add XXX'`
 
-如果是修改已存在的文件就： git ci -am 'modify XXX'
+如果是修改已存在的文件就： `git ci -am 'modify XXX'`
 
-然后一致git push origin master
+然后一致`git push origin master`。
+
+
+ps:在中文下，markdown其实挺不好用的，不断切换英文的语法标签和中文。。。
