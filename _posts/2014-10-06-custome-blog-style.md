@@ -46,7 +46,34 @@ comments :
 
 --analytics-providers:博客数据分析插件的样式,作用同上。
 
+--anlytics、comments这2个文件是使用liquid语法调用上面提的相应文件,有点MVC的感觉，这个是controller,上面提的文件是view.
+
+--剩下的几个文件，都是一些配置，变量的定义什么的，我基本没动他们，感兴趣的可以打开文件看看。文件的注释部分将其用法写的很清楚。不果setup可以看看，这里详细定义了`BASE_PATH`、`HOME_PATH`、`ASSET_PATH`,对写模板时静态文件的引入很有用。
+
 
 
 ###1.2  _layouts:
+这里的3个文件`default.html`、`page.htm`l、`post.html`相当于contrllor用来调用view的，如default.html文件里，先是 YAML关于模板名的定义。然后再是liquid语言，先调用setup，来让页面中引用静态文件的变量能解析，然后是调用相应的模板。
 
+```
+---
+theme :
+  name : echizen
+---
+{% include JB/setup %}
+{% include themes/echizen/default.html %}
+```
+
+
+###1.3 _plugins:插件
+
+###1.4 _posts:发布的文章集。
+
+###1.5 _sites:站点目录
+别人能通过URL访问的文件都在这里，基本你不用操作本目录，你在其他目录下的操作，如果涉及到站点的访问，jekyll都会自动同步到该目录。
+
+###1.6 assets:静态文件资源存放
+css、js、img都可以存在这里。
+
+###1.7 _config.yml:配置文件
+这里有很多全局变量的配置，这里配置的变量，在整个站点都能访问，但是这里都是简单的变量声名定义，具体变量的功能性操作都在其他文件夹下具体定义，比如你尝尝会见到的灰常灰常重要的JB变量，具体的JB的内容操作都在_includes的文件夹下
