@@ -97,9 +97,9 @@ theme :
 输出分类信息的代码，这样就可以把你的分类信息显示出来了。
 
 ```
-{ assign pages_list = site.pages }
-{ assign group = 'navigation' }
-{ include JB/pages_list }
+ assign pages_list = site.pages 
+ assign group = 'navigation' 
+ include JB/pages_list 
 ```
 
 >说的深入一点，site.pages指的是所有头信息中定义了layout:pages的页面，而`group = 'navigation'`这句是将头信息中含有`group: navigation`的页面筛选出来了。然后调用了`_includes/JB/pages_list`页面输出具体的html代码，所以你如果要修改nav列表的html可以去这里。
@@ -139,8 +139,8 @@ theme :
 加入导航条：
 
 ```
-{ assign pages_list = site.pages }
-{ assign group = 'navigation' }
-{ include JB/pages_list }
+ assign pages_list = site.pages 
+ assign group = 'navigation' 
+ include JB/pages_list 
 ```
 
