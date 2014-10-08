@@ -129,4 +129,18 @@ theme :
 ##2.3 导航页面样式
 我是在`_includes/echizen/page.html`页面设置样式的，而调用这个page的页面是`_layouts/page.html`，这个页面的`layout:default`,所以我设置的时候导航页面和普通的博文页面的一部分是公用的，这无所谓，看个人所需。然后去_includes/JB/posts_collate这个文件修改样式。
 
+##2.4 具体页面样式
+其实这部分是看前端怎么划分，组织页面间样式可以多样性，你甚至可以让每个分类的样式不同。
+
+虽然我是个折腾的前端，但是我没折腾到每个页面都独具一格。我是首页一种样式，分类一种样式，博客一种样式。分享一下我的修改经验。首页完全独立，分类页面和博文内容有共用内容。
+
+前面已经介绍了，样式文件在`_includes/JB/themes/echizen`下，echizen是我设置的主题名。主要的样式文件是`default.html`,这里放置分类页面和博文页面的公有内容。为了观者导航方便，这两个页面的导航都是应该有的，还有公用的页尾信息。
+
+加入导航条：
+
+```
+{ assign pages_list = site.pages }
+{ assign group = 'navigation' }
+{ include JB/pages_list }
+```
 
