@@ -337,20 +337,20 @@ This is the only way Jekyll knows you want the file processed.
 
 YAML Front Matter must be prepended to the top of template/post/page files:
 
-```
----
-layout: post
-category : pages
-tags : [how-to, jekyll]
----
-... contents ...
-```
+    ---
+    layout: post
+    category : pages
+    tags : [how-to, jekyll]
+    ---
+
+    ... contents ...
 
 Three hyphens on a new line start the Front-Matter block and three hyphens on a new line end the block.
 The data inside the block must be valid YAML.
 
 Configuration parameters for YAML Front-Matter is outlined here:
 [A comprehensive explanation of YAML Front Matter](https://github.com/mojombo/jekyll/wiki/YAML-Front-Matter)
+
 
 #### Defining Layouts for Posts and Templates Parsing.
 

@@ -122,6 +122,10 @@ JB :
   #
   sharing :
     provider : false
+
+  markdown: redcarpet
+  redcarpet:
+    extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables","with_toc_data","strikethrough","underline","superscript"]
     
   # Settings for all other include helpers can be defined by creating 
   # a hash with key named for the given helper. ex:
