@@ -134,6 +134,7 @@ theme :
 
 虽然我是个折腾的前端，但是我没折腾到每个页面都独具一格。我是首页一种样式，分类一种样式，博客一种样式。分享一下我的修改经验。首页完全独立，分类页面和博文内容有共用内容。
 
+###default.html
 前面已经介绍了，样式文件在`_includes/JB/themes/echizen`下，echizen是我设置的主题名。主要的样式文件是`default.html`,这里放置分类页面和博文页面的公有内容。为了观者导航方便，这两个页面的导航都是应该有的，还有公用的页尾信息。
 
 加入导航条：
@@ -144,3 +145,18 @@ theme :
  include JB/pages_list 
 ```
 
+作为一名尊重别人劳动成果的的程序猿，我没有将页面尾部`<footer>`和`</footer>`之间的感谢原框架作者的内容，^_^
+
+###page.html
+在我的博客主题里这其实就是分类页的模板，里面用`liquid`引用了`content`，然后由于我在分类页的原controller页面调用了`include JB/posts_collate`，所以我去这个页面把文章列表按时间线的样式排列了下来。
+
+###post.html
+博文内容样式页，这里有一些文章标题、内容框架、标签样式、分页的样式。然后具体的pre、h3、p等这些样式可以写成css样式表，扔到assets/themes/theme_name/css下。
+
+**注意default.html可以解析YAML，但是page.html和post.html不能解析YAML**
+
+#3.番外篇
+有看到 [大神](http://pizn.github.io/) 把jekyll默认的结构改的渣都不剩的，我也clone了他的代码看了一下，[https://github.com/pizn/pizn.github.com](https://github.com/pizn/pizn.github.com)，在此感谢他代码的提示性作用。无奈功底不深，无法改成这幅样子，我更多的参考的还是默认模板，所以我的主题是在默认模板下修改的。但是操作过一遍后我发现其实不改其原框架结构，按其原则也能达到随心所欲的页面的效果，再结合liquid和YAML，足够折腾了，所以不是很了解其内部关系时，我建议大家也按其规则修改。
+
+#4.解决的主要问题
+##4.1 jekyll server 本地运行后
