@@ -655,3 +655,7 @@ html,body{
                 margin-top: 70px;
                 margin-bottom: 30px;
             }
+
+.content img {
+  width: 100%;
+}
