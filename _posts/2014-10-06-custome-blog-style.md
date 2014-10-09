@@ -195,8 +195,8 @@ theme :
         page.puts File.read(settings_file) if File.exist?(settings_file)
         page.puts "layout: default" unless File.basename(filename, ".html").downcase == "default"
         page.puts "---"
-        page.puts "{% include JB/setup %}"
-        page.puts "{% include themes/#{theme_name}/#{File.basename(filename)} %}"
+        page.puts "% include JB/setup %"
+        page.puts "% include themes/#{theme_name}/#{File.basename(filename)} %"
         
         
 
