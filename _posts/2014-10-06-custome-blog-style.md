@@ -45,7 +45,7 @@ theme :
 
 ```
 comments :
-    provider : disqus
+	provider : disqus
 ```
 
 
@@ -84,7 +84,7 @@ css、js、img都可以存在这里。
 
 ##2.1 首页
 首页是访问github page 的username.github.io直接跳转到的页面，首页的文件名一定要是index.html或index.md，因为jekyll的URL路由把域名指向了这里，而且index.md比index.html先加载，所以两者你只能取一个啦。首页保存在根目录下。
-    首页是最最重要的面子工程啦。首页也要头信息，如果首页风格与其他页面都不同就不要加layout了，因为你不需要引用模板。为了引用静态文件，一定要加
+	首页是最最重要的面子工程啦。首页也要头信息，如果首页风格与其他页面都不同就不要加layout了，因为你不需要引用模板。为了引用静态文件，一定要加
 
 ```
 theme :
@@ -140,9 +140,9 @@ theme :
 加入导航条：
 
 ```
- assign pages_list = site.pages 
- assign group = 'navigation' 
- include JB/pages_list 
+	 assign pages_list = site.pages	  
+	 assign group = 'navigation'	  
+	 include JB/pages_list ]
 ```
 
 作为一名尊重别人劳动成果的的程序猿，我没有将页面尾部`<footer>`和`</footer>`之间的感谢原框架作者的内容，^_^
@@ -155,8 +155,48 @@ theme :
 
 **注意default.html可以解析YAML，但是page.html和post.html不能解析YAML**
 
-#3.番外篇
-有看到 [大神](http://pizn.github.io/) 把jekyll默认的结构改的渣都不剩的，我也clone了他的代码看了一下，[https://github.com/pizn/pizn.github.com](https://github.com/pizn/pizn.github.com)，在此感谢他代码的提示性作用。无奈功底不深，无法改成这幅样子，我更多的参考的还是默认模板，所以我的主题是在默认模板下修改的。但是操作过一遍后我发现其实不改其原框架结构，按其原则也能达到随心所欲的页面的效果，再结合liquid和YAML，足够折腾了，所以不是很了解其内部关系时，我建议大家也按其规则修改。
+##2.5 添加comment
+   先从 Disqus, Intense Debate, livefyre,  Facebook Comments中选一个，去官网注册个帐号，我选的是[Disqus](https://disqus.com/)，在[这里](https://disqus.com/admin/create/)注册个号，然后将你注册的帐号名添加到_config.yml中
+   
+	   comments :
+	    provider : disqus
+	    disqus :
+	      short_name : your_name
 
-#4.解决的主要问题
-##4.1 jekyll server 本地运行后
+#3.番外篇 
+有看到 [大神](http://pizn.github.io/) 把jekyll默认的结构改的渣都不剩的，我也clone了他的代码看了作用,[https://github.com/pizn/pizn.github.com](https://github.com/pizn/pizn.github.com)，感谢他的代码的启发作用。无奈功底不深，无法改成这幅样子，我更多的参考的还是默认模板，所以我的主题是在默认模板下修改的。但是操作过一遍后我发现其实不改其原框架结构，按其原则也能达到随心所欲的页面的效果，再结合liquid和YAML，足够折腾了，所以不是很了解其内部关系时，我建议大家也按其规则修改。
+
+##关于markdown解析
+原来markdown具有多种渲染器，这些渲染器对markdown语法的解析还不一样。jekyll使用的是 Redcarpet 的markdown渲染器，他对代码块的```不支持，代码块必须是缩进4个空格，好不方便。
+
+
+#4.主要解决的问题
+### jekyll server 本地blog运行时,mac会报错一群cant'find ··· in atom.xml的错误。
+解决：将_config.yml中的`pygments: true `替换为`highlighter: pygments`.
+
+### `{{ASEET_PATH}}`只能在_includes下的defalut.html中使用，而不能在post.html、page.html中使用。
+解决：在`_layout`下的post.html和page.html中加入头信息：
+
+		theme :
+		   name : theme_name
+		   
+并将`Rakefile`中137至145行的内容注释掉，替换成：
+
+		# if File.basename(filename, ".html").downcase == "default"
+        #   page.puts "---"
+        #   page.puts File.read(settings_file) if File.exist?(settings_file)
+        #   page.puts "---"
+        # else
+        #   page.puts "---"
+        #   page.puts "layout: default"
+        #   page.puts "---"
+        # end 
+        page.puts "---"
+        page.puts File.read(settings_file) if File.exist?(settings_file)
+        page.puts "layout: default" unless File.basename(filename, ".html").downcase == "default"
+        page.puts "---"
+        page.puts "{% include JB/setup %}"
+        page.puts "{% include themes/#{theme_name}/#{File.basename(filename)} %}"
+        
+        
+
