@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "mac环境下安装搭建github - jekyll blog，创建自定义风格模板"
+title: "mac环境下安装搭建github - jekyll blog"
 description: "mac环境下搭建jekyll blog，创建自定义风格模板，并部署到gitub上"
 category: tech
 tags: [jekyll, blog, tutorial]
