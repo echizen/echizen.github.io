@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "jekyll blog 模板修改 创建自己的style"
+title: "mac环境下安装搭建github - jekyll blog，创建自定义风格模板"
 description: "mac环境下搭建jekyll blog，创建自定义风格模板，并部署到gitub上"
 category: tech
-tags: []
+tags: [jekyll, blog, tutorial]
 ---
 {% include JB/setup %}
 #mac环境下搭建github - jekyll blog，创建自定义风格模板
@@ -28,9 +28,9 @@ tags: []
 
 2、按教程来的话，你敲`git push origin master`，一定会报错：
 
-    $ git push origin master
-    Permission denied (publickey).
-    fatal: The remote end hung up unexpectedly
+	    $ git push origin master
+	    Permission denied (publickey).
+	    fatal: The remote end hung up unexpectedly
 
 这时，参考[https://help.github.com/articles/generating-ssh-keys/](https://help.github.com/articles/generating-ssh-keys/) 
 
@@ -38,7 +38,7 @@ tags: []
 
 
 ##主篇-风格主题搭建
-见我的下一篇博客吧
+见我的下一篇博客吧[http://echizen.github.io/tech/2014/10-06-custome-blog-style/](http://echizen.github.io/tech/2014/10-06-custome-blog-style/)
 
 ---
 
@@ -58,23 +58,23 @@ tags: []
 ###2、修改头信息
 打开新建的那个文件，新建的文件终端都会输出新建的文件路径，所以只用`open`命令就可以很轻松的用默认的编辑器打开该文件了。（Mac下是Mou打开markdown文件）
 
-```
-rake post title="jekyll blog 模板修改-创建自己的style"
-Creating new post: ./_posts/2014-10-06-jekyll-blog--style.md
-➜  echizen.github.io git:(master) ✗ open ./_posts/2014-10-06-jekyll-blog--style.md
-```
+		
+		rake post title="jekyll blog 模板修改-创建自己的style"
+		Creating new post: ./_posts/2014-10-06-jekyll-blog--style.md
+		➜  echizen.github.io git:(master) ✗ open ./_posts/2014-10-06-jekyll-blog--style.md
+	
 
 新建的~~~XXXhello-world.md的头部有一段`YAML` 头信息，形如：
 
-```
----
-layout: post
-title: "hello world"
-description: ""
-category: 
-tags: []
----
-```
+		
+		---
+		layout: post
+		title: "hello world"
+		description: ""
+		category: 
+		tags: []
+		---
+		
 layout:决定渲染的模板，post就是post.html啦，用`rake post`命令生成的默认都是post。
 
 title:真正的会在归档等地方显示的页面标题。
@@ -99,4 +99,4 @@ tags:给文章打上标签，和category一样，这样两个都是要在页面�
 ps:在中文下，markdown其实挺不好用的，不断切换英文的语法标签和中文。。。
 
 ###4、疑难杂症
-markdown里插图片好不方便啊！！！还得加链接。我的做法是，图片基本来源于截图，我把截图直接放在assets
+markdown里插图片好不方便啊！！！还得加链接。我的做法是，在根目录下的assets下新建一个blog-img文件夹，图片基本来源于截图，我把截图的保存目录直接关联到这个目录，然后在博文中因为考虑到有可能会把.md文件粘到其他地方，我用的又是绝对地址，即https://username.github.io/assets/blog-img/图片名称.png。这样相对方便一点，但是还是没有那种直接在插入图片方便。不知大家用的是什么方法。
