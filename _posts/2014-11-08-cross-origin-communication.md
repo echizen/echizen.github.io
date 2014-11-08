@@ -1,10 +1,9 @@
 ---
 layout: post
 title: "跨域通信"
-description: ""
-category:tech
+description: "web 跨域传递消息，html5 postMessage API，html5跨域示例，跨域通信方法汇总"
+category: tech
 tags: [html5, 前端, 进阶]
-
 ---
 {% include JB/setup %}
 #跨域通信
