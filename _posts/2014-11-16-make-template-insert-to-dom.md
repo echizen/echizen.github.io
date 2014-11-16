@@ -3,7 +3,7 @@ layout: post
 title: "js 循环给html中添加含动态数据的dom元素"
 description: "js 循环给html中添加含动态数据的dom元素，js模板制作，后台数据插入到前端页面"
 category: tech 
-tags: [js, html, 数据交互，进阶]
+tags: [前端, js, html, 数据交互, 进阶, tutorial]
 ---
 {% include JB/setup %}
 #应用场景

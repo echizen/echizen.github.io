@@ -3,7 +3,7 @@ layout: post
 title: "动态json创建"
 description: "动态json创建,将dom中的数据动态添加到"
 category: tech
-tags: [ js, 数据交互, tutorial]
+tags: [ 前端, js, 数据交互, tutorial]
 ---
 {% include JB/setup %}
 
