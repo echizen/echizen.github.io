@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "操作剪切板，js 复制链接到剪切板"
+title: "操作剪切板，js 复制链接至剪切板"
 description: "关于js flash html5 对剪切板的操作"
 category: tech
 tags: [tutorial, html5, 基础, js ]
@@ -27,6 +27,8 @@ tags: [tutorial, html5, 基础, js ]
 	　　beforepaste：在发生粘贴操作前触发;
 	　　paste：在发生粘贴操作的时候触发。
 	　　
+
+
 ###不同浏览器下区别
 在Firefox、Chrome和Safari中，`beforecopy`、`beforecut`和`beforepaste`事件只会在显示针对文本框的上下文菜单(预期将发生剪贴板事件)的情况下触发。但是IE则会在触发`copy`、`cut`和`paste`事件之前先触发这些事件。至于`copy`、`cut`和`paste`事件，只要是在上下文菜单(右键菜单)中选择了相应选项，或者使用了相应的键盘组合键如(ctrl+v)，所有浏览器都会触发他们。要访问剪贴板中的数据，可以通过clipboardData对象：在IE中，`clipboardData对象`是`window`对象的属性;而在Chrome、Safari和Firefox 4+中，`clipboardData对象`是相应`event`对的属性。但是，在Chrome、Safari和Firefox 4+中，只有在处理剪贴板事件期间，clipboardData对象才有效，这是为了防止对剪贴板的未授权访问;在IE中，则可以随时访问clipboardData对象。为了确保跨浏览器兼容，最好只在发生剪贴板事件期间使用这个对象。
 
