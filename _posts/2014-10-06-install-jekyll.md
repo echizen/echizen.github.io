@@ -55,6 +55,7 @@ tags: [jekyll, blog, tutorial]
 ![image](https://echizen.github.io/assets/blog-img/QQ20141006-1.png)
 
 也就是说无论你是`permalink: /:categories/:year-:month-:day-:title `还是什么，都只能显示三种效果，
+
 ###2、修改头信息
 打开新建的那个文件，新建的文件终端都会输出新建的文件路径，所以只用`open`命令就可以很轻松的用默认的编辑器打开该文件了。（Mac下是Mou打开markdown文件）
 
