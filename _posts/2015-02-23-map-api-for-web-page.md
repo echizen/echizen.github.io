@@ -60,11 +60,11 @@ QQ   mqq://
 
 ##intent调用
 
-**高德地图：
-`<a href="androidamap://route?sourceApplication=softname&slat=36.2&slon=116.1&sname=abc&dlat=36.3&dlon=116.2&dname=def&dev=0&m=0&t=1&showType=1">线路规划</a>`**
+**高德地图：**
+`<a href="androidamap://route?sourceApplication=softname&slat=36.2&slon=116.1&sname=abc&dlat=36.3&dlon=116.2&dname=def&dev=0&m=0&t=1&showType=1">线路规划</a>`
 
-**百度地图：
-`<a href="intent://map/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&src=yourCompanyName|yourAppName">线路规划</a>`**
+**百度地图：**
+`<a href="intent://map/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&src=yourCompanyName|yourAppName">线路规划</a>`
 
 注意：有些安卓机型上面2种方式都不适用。。。
 
