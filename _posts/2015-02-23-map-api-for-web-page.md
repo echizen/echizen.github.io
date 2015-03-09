@@ -53,18 +53,22 @@ QQ   mqq://
 ##scheme调用
 
 高德地图：
-`<a href="iosamap://path?sourceApplication=applicationName&backScheme=applicationScheme&sid=BGVIS1&slat=39.92848272&slon=116.39560823&sname=A&did=BGVIS2&dlat=39.98848272&dlon=116.47560823&dname=B&dev=0&m=0&t=0">公交导航</a>`
+
+	<a href="iosamap://path?sourceApplication=applicationName&backScheme=applicationScheme&sid=BGVIS1&slat=39.92848272&slon=116.39560823&sname=A&did=BGVIS2&dlat=39.98848272&dlon=116.47560823&dname=B&dev=0&m=0&t=0">公交导航</a>
 
 百度地图：
-`<a href="baidumap://map/direction?origin=34.264642646862,108.95108518068&destination=40.007623,116.360582&mode=driving&src=yourCompanyName|yourAppName">驾车导航</a>`
+	
+	<a href="baidumap://map/direction?origin=34.264642646862,108.95108518068&destination=40.007623,116.360582&mode=driving&src=yourCompanyName|yourAppName">驾车导航</a>
 
 ##intent调用
 
 **高德地图：**
-`<a href="androidamap://route?sourceApplication=softname&slat=36.2&slon=116.1&sname=abc&dlat=36.3&dlon=116.2&dname=def&dev=0&m=0&t=1&showType=1">线路规划</a>`
+
+	<a href="androidamap://route?sourceApplication=softname&slat=36.2&slon=116.1&sname=abc&dlat=36.3&dlon=116.2&dname=def&dev=0&m=0&t=1&showType=1">线路规划</a>
 
 **百度地图：**
-`<a href="intent://map/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&src=yourCompanyName|yourAppName">线路规划</a>`
+
+	<a href="intent://map/direction?origin=latlng:34.264642646862,108.95108518068|name:我家&destination=大雁塔&mode=driving&region=西安&src=yourCompanyName|yourAppName">线路规划</a>
 
 注意：有些安卓机型上面2种方式都不适用。。。
 
