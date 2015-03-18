@@ -47,7 +47,7 @@ Usage:
           <div class="list_article">
                 <span class="glyphicon glyphicon-send" style="padding-right: 15px;color: #fff;"></span>
                 <span class="article_title">{{ post.title }}</span>
-              <div class="title_time">{{ post.date | date: "%B %e, %Y" }} </div>
+              <div class="title_time">{{ post.date | date: "%Y . %B . %e" }} </div>
           </div>
         </div>
       </a>

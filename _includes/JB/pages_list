@@ -1,4 +1,5 @@
-{% comment %}<!--
+{% comment %}
+<!--
 The pages_list include is a listing helper.
 Usage:
   1) assign the 'pages_list' variable to a valid array of pages or posts.
@@ -18,7 +19,8 @@ Usage:
   	i.e. site.tags.cool_tag (this returns an array of posts tagged: cool_tag)
   	
   This helper can be seen in use at: ../_layouts/default.html
--->{% endcomment %}
+-->
+{% endcomment %}
 
 {% if site.JB.pages_list.provider == "custom" %}
   {% include custom/pages_list %}

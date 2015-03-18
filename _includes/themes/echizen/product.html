@@ -15,7 +15,6 @@
         <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         
         <!-- Custom styles -->
-        <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
         <link href="{{ ASSET_PATH }}/css/echizen.css?body=1" rel="stylesheet" type="text/css" media="all">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,38 +35,88 @@
         <!-- atom & rss feed -->
         <link href="{{ BASE_PATH }}{{ site.JB.atom_path }}" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
         <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-
         <style type="text/css">
-            .bg{
-                background-image: url("{{ ASSET_PATH }}/img/rightBg.png");
-                background-repeat: repeat;
-                width: 100%;
-                height: 100%;
-                position:fixed;
-            }
+          html,body{
+            width: 100%;
+            height: 100%;
+            overflow-x:hidden; 
+          }
+
+          body{
+            background-color: #f8f8f9;
+            padding-top: 90px;
+          }
+
+          .title{
+            margin-top: -90px;
+            text-align: center;
+            background-color: #CCFFCC;
+            padding: 10px;
+          }
+
+          .full_col{
+            display: block;
+            position: relative;
+            float: left;
+            width: 100%;
+          }
+
+          .main_info{
+            height: 100%;
+          }
+
+          .content,.intro{
+            padding-top: 40px;
+            padding-bottom: 40px;
+            min-height: 100%;
+          }
+
+          .content{
+            padding-left: 40px;
+            padding-right: 40px;
+            font-size: 18px;
+          }
+
+          .intro{
+            background-color: #fff;
+          }
+
+          .main_content{
+            padding-bottom: 40px;
+          }
+
+          .date{
+            float: right;
+          }
+
         </style>
+
     </head>
 
     <body>
-        <div class="bg">
+
+        <section class="title">
+          <h1>{{ page.title }}</h1>
+        </section>
+
+        
+        <section class="full_col main_info">
+          <div class="col-md-8 content">
+            <div class="full_col main_content">
+              {{ content }}
+            </div>
+
+            <div class="date">
+              <span>{{ page.date | date_to_long_string }}</span>
+            </div>
+
+          </div>
+
+          <div class="col-md-4 intro">
             
-        </div>
-                <ul class="nav">
-                    {% assign pages_list = site.pages %}
-                    {% assign group = 'navigation' %}
-                    {% include JB/pages_list %}
-                </ul>
-
-       <div class="container content_wrap">
-                {{ content }}
-            <footer>
-                <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
-                  with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-                  and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-                </p>
-            </footer>
-       </div>
-
+          </div>
+        </section>
+      
     {% include JB/analytics %} 
     </body>
 </html>

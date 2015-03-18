@@ -18,12 +18,40 @@
         <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
         <link href="{{ ASSET_PATH }}/css/echizen.css?body=1" rel="stylesheet" type="text/css" media="all">
 
+        <!-- fullPage plugin style -->
+        <link href="{{ ASSET_PATH }}/plugin/jquery.fullPage.css?body=1" rel="stylesheet" type="text/css" media="all">
+        <link href="{{ ASSET_PATH }}/plugin/basic.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
+
+        <script type="text/javascript" src="{{ ASSET_PATH }}/js/jquery-1.11.1.min.js"></script>
+        <!--<script type="text/javascript" src="{{ ASSET_PATH }}/js/jquery-ui.min.js"></script>-->
+        <script type="text/javascript" src="{{ ASSET_PATH }}/plugin/jquery.fullPage.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+                //anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+                menu: false,
+
+                //equivalent to jQuery `easeOutBack` extracted from http://matthewlein.com/ceaser/
+                easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
+                navigation: true,
+                navigationPosition: 'right',
+                //navigationTooltips: ['firstSlide', 'secondSlide'],
+                showActiveTooltips: true,
+                slidesNavigation: false,
+                //slidesNavPosition: 'bottom',
+            });
+
+        });
+    </script>
 
         <!-- Fav and touch icons -->
         <!-- Update these with your own images -->
@@ -45,28 +73,26 @@
                 height: 100%;
                 position:fixed;
             }
+
+            p{
+                text-align: center;
+            }
         </style>
+
+        
     </head>
 
     <body>
-        <div class="bg">
-            
-        </div>
-                <ul class="nav">
-                    {% assign pages_list = site.pages %}
-                    {% assign group = 'navigation' %}
-                    {% include JB/pages_list %}
-                </ul>
+        <div id="fullpage">
+            <div class="section">
+                <h1>作品展示页</h1>
+                <p>罗列一些自己参与过的项目，我负责前端部分</p>
+                <small>时间顺序由近到远</small>
+            </div>
 
-       <div class="container content_wrap">
-                {{ content }}
-            <footer>
-                <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
-                  with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-                  and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-                </p>
-            </footer>
-       </div>
+            {{ content }}
+
+        </div>
 
     {% include JB/analytics %} 
     </body>

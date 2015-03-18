@@ -44,10 +44,11 @@ theme :
             }*/
 
             body{
-                font-family: 'KaiTi','SimHei';
-                background: url('{{ ASSET_PATH }}/img/indexbg.png') repeat;
+                background: url('{{ ASSET_PATH }}/img/indexbg1.jpg') no-repeat;
                 color: #bbb;
                 font-size: 18px;
+                background-size: 100%;
+                font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
             }
 
             .nav li{
@@ -59,9 +60,11 @@ theme :
             }
 
             .index_pic img{
-                width: 300px;
+                width: 250px;
                 display: block;
                 margin: 0px auto;
+                border-radius: 50%;
+                border: 2px solid #ccc;
             }
 
             .name{
@@ -77,8 +80,12 @@ theme :
                 background-color: rgba(255, 255, 255, 0.49);
             }*/
 
+            .category_wrap{
+                height: 190px;
+                padding-top: 20px;
+            }
+
             .nav{
-                margin-top:50px;
                 width: 770px;
             }
 
@@ -86,6 +93,7 @@ theme :
                 float: left;
                 margin-left: 12px;
                 margin-right: 12px;
+                margin-top: 10px;
             }
 
             .nav li:before{
@@ -118,15 +126,17 @@ theme :
                 line-height: 130px;
                 padding: 0px;
                 font-size: 25px;
+                text-decoration: none;
                 display: block;
-                font-family: "Monaco","Oxygen","Helvetica Neue",Helvetica,Arial,sans-serif;
             }
 
             .nav li:hover,.nav li:focus{
-                width: 150px;
+                margin-top: 0px;
                 height: 150px;
+                width: 150px;
                 margin-left: 2px;
                 margin-right: 2px;
+                
                 -webkit-transition: all .8s ease;
                 -moz-transition: all .8s ease;
                 -o-transition: all .8s ease;
@@ -139,7 +149,6 @@ theme :
                 line-height: 150px;
                 padding: 0px;
                 font-size: 30px;
-                text-decoration: none;
                 background-color: transparent;
                 -webkit-transition: all .8s ease;
                 -moz-transition: all .8s ease;
@@ -150,10 +159,12 @@ theme :
             .motto{
                 margin-top: 40px;
                 font-size: 35px;
-                font-weight: 700;
-                color: #333;
+                font-weight: 300;
+                color: #059D14;
                 text-align: center;
                 text-shadow: 4px 4px 2px #ccc;
+                position: fixed;
+                bottom: 30px;
             }
         </style>
     </head>
@@ -164,11 +175,11 @@ theme :
                 折腾的blog
             </div>
 
-            <div class="col-md-12 index_pic">
+            <!-- <div class="col-md-12 index_pic">
                 <img class="img-rounded" src="{{ ASSET_PATH }}/img/main_pic.jpg">
-            </div>
+            </div> -->
 
-            <div class="col-md-12">
+            <div class="col-md-12 category_wrap">
                 <div class="nav center-block">
                     {% assign pages_list = site.pages %}
                     {% assign group = 'navigation' %}
@@ -178,6 +189,10 @@ theme :
                         <a href="/e_archive.html">archive</a>
                     </li>
                 </div>
+            </div>
+
+            <div class="col-md-12 index_pic">
+                <img class="img-rounded" src="{{ ASSET_PATH }}/img/avatar.jpg">
             </div>
 
             <div class="col-md-12 motto">
