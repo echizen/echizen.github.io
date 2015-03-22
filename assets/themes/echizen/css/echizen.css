@@ -1,3 +1,20 @@
 body{
     font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 }
+
+.fullPage_section .content{
+    padding: 40px 60px;
+    text-align: left;
+    position: relative;
+    border-bottom: none;
+}
+
+.fullPage_section .content p{
+    text-align: justify;
+}
+
+.fullPage_section .date{
+    text-align: right;
+    float: right;
+    padding-right: 80px;
+}

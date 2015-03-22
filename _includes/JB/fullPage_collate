@@ -28,11 +28,16 @@ Usage:
     {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
   
 
-    <div class="section">
+    <div class="section fullPage_section">
+      {% if post.showUrl == nil %}
       <a href="{{ BASE_PATH }}{{ post.url }}" style="color:#333">
+      {% else %}
+      <a href="{{ BASE_PATH }}{{ post.showUrl }}" style="color:#333">
+      {% endif %}
+
         <h1>{{ post.title }}</h1>
-        <p>{{ post.description }}</p>
-        <small>{{ post.date | date: "%Y . %e " }}</small>
+        <div class="content">{{ post.content }}</div>
+        <small class="date">{{ post.date | date: "%Y . %e " }}</small>
       </a>
     </div>
 
