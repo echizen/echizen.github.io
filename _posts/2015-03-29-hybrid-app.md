@@ -155,7 +155,7 @@ tags: [ pro, 前端]
 我是给每个页面都有独立的js模块的，然后用requiredJS调用公用模块的js.每个页面的js加载规则在route.js中配置。
 
 js文件的结构部分截图：
-![image](http://https://echizen.github.io/assets/blog-img/QQ20150329-2.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150329-2.png)
 
 虽然有点繁，我给每个页面都建了个文件夹，里面就一个controller文件，其实这是考虑，可能我们后期会把modal部分也从nodeJS端迁到js来做。由于约定了文件夹和js文件与页面文件同名，所以规则就很好配置了。
 
