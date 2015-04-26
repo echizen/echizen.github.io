@@ -22,7 +22,7 @@ box布局是flex布局的前身，为了兼容性，一般写成上面的格式�
 
 兼容性：各大系统、浏览器都表现了很好的兼容性
 
-![image](https://echizen.github.io/assets/img-blog/QQ20150426-1@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150426-1@2x.png)
 
 
 ##使用场景
@@ -70,7 +70,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 + **space-between**: 第一个元素不留空隙左对齐，最后一个元素不留空隙右对齐，空隙均匀分布在元素之间
 + **space-around**: 空隙被均匀的分布在元素之间，但由于第一个元素与边界只有左空隙，而元素与元素之间既有前一个元素的右空隙又有后一个元素的左空隙，所以结果是首尾元素距离边界的空隙只有元素与元素之间空隙的一半。
 
-![image](https://echizen.github.io/assets/img-blog/QQ20150426-4@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150426-4@2x.png)
 
 ### 3. align-items： 单行元素上下空隙分布
 
@@ -84,7 +84,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 + **baseline**: 依据元素内的字下方对齐
 + **stretch** (default): 子元素被拉长至与父容器等高，子元素和父元素上下都对齐。
 
-![image](https://echizen.github.io/assets/img-blog/QQ20150426-5@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150426-5@2x.png)
 
 ### 4. align-content： 多行元素上下空隙分布
 
@@ -104,7 +104,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 	  	flex-direction: row | row-reverse | column | column-reverse;
 	}
 	
-![image](https://echizen.github.io/assets/img-blog/QQ20150426-2@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150426-2@2x.png)
 	
 ###6. flex-wrap：子元素换行方式
 
@@ -115,7 +115,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 + nowrap (default): 不换行，单行排完 / left to right in ltr; right to left in rtl
 + wrap: 多行，允许换行，从左向右排列 / left to right in ltr; right to left in rtl
 + wrap-reverse: 多行，从右向左排列 / right to left in ltr; left to right in rtl	
-![image](https://echizen.github.io/assets/img-blog/QQ20150426-3@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150426-3@2x.png)
 
 ###7. flex-flow :flex-direction 和flex-wrap的简洁写法
 
@@ -141,7 +141,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 	  flex-grow: <number>; /* default 0 */
 	}
 
-![image](https://echizen.github.io/assets/img-blog/QQ20150426-6@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150426-6@2x.png)
 
 测试地址：
 
@@ -187,7 +187,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 	
 属性值含义同align-items。
 	
-![image](https://echizen.github.io/assets/img-blog/QQ20150426-7@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150426-7@2x.png)
 
 
 ### 6. flex：flex-grow, flex-shrink 和 flex-basis的简写
