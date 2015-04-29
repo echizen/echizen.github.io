@@ -209,5 +209,8 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 [https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 [http://www.w3schools.com/cssref/css3_pr_flex.asp](http://www.w3schools.com/cssref/css3_pr_flex.asp)
-
 w3schools的play it部分改变列子参数很直观。
+
+[http://philipwalton.github.io/solved-by-flexbox/](http://philipwalton.github.io/solved-by-flexbox/)
+这是最具体的demo了。
+
