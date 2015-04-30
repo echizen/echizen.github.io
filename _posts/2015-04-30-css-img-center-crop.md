@@ -3,7 +3,7 @@ layout: post
 title: "css 居中裁剪图片、背景图片"
 description: "css img center crop,css裁剪图片，居中裁剪图片、居中展示背景图片"
 category: tech
-tags: [css, pro]
+tags: [css, basic]
 ---
 {% include JB/setup %}
 
@@ -35,7 +35,7 @@ html
 	</div>
 
 示例：
-[http://jsfiddle.net/echizen/0oer38w8/](http://jsfiddle.net/echizen/0oer38w8/)
+[http://jsfiddle.net/echizen/0oer38w8/2/](http://jsfiddle.net/echizen/0oer38w8/2/)
 
 
 ##图片展示
