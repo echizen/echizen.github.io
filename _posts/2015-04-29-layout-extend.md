@@ -18,6 +18,8 @@ tags: [css, basic]
 		
 		-webkit-justify-content: space-between;
 		justify-content: space-between;
+		webkit-box-pack: justify;
+		-ms-flex-pack: justify;
 		
 		-webkit-box-align: center;
 		-ms-flex-align: center;
@@ -31,9 +33,9 @@ tags: [css, basic]
 		-ms-flex: 0 0 auto;
 		flex-shrink: 0;
 		
-![image](http://echizen.github.io/assets/blog-img/QQ20150429-1@2x.png)
+	![image](http://echizen.github.io/assets/blog-img/QQ20150429-1@2x.png)
 
-接下来说说我用flex实现这个页面效果所发现的要注意的几点。
+	接下来说说我用flex实现这个页面效果所发现的要注意的几点。
 
 3. 使用`flex-shrink = 0 `防止dom塌陷。
 	以文件下载那一条为例，这是3栏布局，中间的文件名是多行，而前后的文件标示图和下载链接是有固定大小的，如果不加这个属性会导致当中间的文件名超过一行时会挤压2边的内容，即使你给文件标示图定了固定的大小，还是会被中间的内容压小。所以要给文件标示图和下载链接以下style:
@@ -68,7 +70,12 @@ tags: [css, basic]
 		  flex-wrap: wrap;
 		  
 	给子元素`display:inline-block`属性要注意的是，空格和换行符在这里会占位置，譬如你5个子元素，每个宽度20%，这时候会换行！！！因为你的源码里的空格和换行符占了位置。解决方案是给容器加上`font-size: 0px;`，
-		  
+	
+6. display为flex的元素text-overflow: ellipsis失效
+
+	貌似是flex目前还不支持这个。一般解决方案都是曲线救国，在flex的元素里放上子元素，给子元素`block`或`inline-block`的display。
+	
+	  
 ###黄金资料
 
 别人整理的bug合集：[https://github.com/philipwalton/flexbugs](https://github.com/philipwalton/flexbugs)
