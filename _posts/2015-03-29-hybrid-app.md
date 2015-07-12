@@ -175,7 +175,7 @@ js文件的结构部分截图：
 
 先看看静态资源的构成。
 
-![image](http://https://echizen.github.io/assets/blog-img/QQ20150329-1.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20150329-1.png)
 
 -require.js:不用说，requireJS
 
