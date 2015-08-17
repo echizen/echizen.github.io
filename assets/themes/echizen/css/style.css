@@ -12,8 +12,7 @@ html, body {
 
 /* line 18, ../_sass/_base.scss */
 body {
-  color: #bbb;
-  text-shadow: 1px 1px 1px #000;
+  color: #ccc;
   height: 100%;
   font-family: 'Oxygen', sans-serif;
   font-size: 14px;
@@ -26,6 +25,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #ddd;
   text-rendering: optimizelegibility;
   font-family: 'Advent Pro', sans-serif;
+  text-shadow: 1px 1px 1px #000;
   /*font-family: 'Pontano Sans', sans-serif;*/
 }
 
