@@ -170,11 +170,11 @@ Sizzle.find主查找函数和Sizzle.filter过滤函数实现原理：
 
 ## sizzle高效原因
 
-首先，从处理流程上，它总是先使用最高效的原生方法来做处理。前面一直在介绍的还只是Sizzle自身的选择器实现方法，真正Sizzle执行的时候，它还会先判断当前浏览器是否支持querySelectorAll原生方法（源代码1545行）。如果支持的话，则优先选用此方法，浏览器原生支持的方法，效率肯定比Sizzle自己js写的方法要高，优先使用也能保证Sizzle更高的工作效率。（关于querySelectorAll可以上网查阅更多资料）。在不支持querySelectorAll方法的情况下，Sizzle也是优先判断是不是可以直接使用getElementById、getElementsByTag、getElementsByClassName等方法解决问题。
+首先，从处理流程上，它总是先使用最高效的原生方法来做处理。前面一直在介绍的还只是Sizzle自身的选择器实现方法，真正Sizzle执行的时候，对于css选择器，它还会先判断当前浏览器是否支持querySelectorAll原生方法。如果支持的话，则优先选用此方法，浏览器原生支持的方法，效率肯定比Sizzle自己js写的方法要高，优先使用也能保证Sizzle更高的工作效率。（关于querySelectorAll可以上网查阅更多资料）。在不支持querySelectorAll方法的情况下，Sizzle也是优先判断是不是可以直接使用getElementById、getElementsByTag、getElementsByClassName等方法解决问题。
 
 其次，相对复杂的情况，Sizzle总是选择先尽可能利用原生方法来查询选择来缩小待选范围，然后才会利用前面介绍的“编译原理”来对待选范围的元素逐个匹配筛选。进入到“编译”这个环节的工作流程有些复杂，效率相比前面的方法肯定会稍低一些，但Sizzle在努力尽量少用这些方法，同时也努力让给这些方法处理的结果集尽量小和简单，以便获得更高的效率。
 
-再次，即便进入到这个“编译”的流程，Sizzle还做了我们前面为了优先解释清楚流程而暂时忽略、没有介绍的缓存机制。源代码1535行是我们所谓的“编译”入口，也就是它会调用第三个核心方法superMatcher。跟踪进去看1466行，compile方法将根据selector生成的匹配函数缓存起来了。还不止如此，再到1052行看tokenize方法，它其实也将根据selector做的分词结果缓存起来了。也就是说，当我们执行过一次Sizzle (selector)方法以后，下次再直接调用Sizzle (selector)方法，它内部最耗性能的“编译”过程不会再耗太多性能了，直接取之前缓存的方法就可以了。我在想所谓“编译”的最大好处之一可能也就是便于缓存，所谓“编译”在这里可能也就可以理解成是生成预处理的函数存储起来备用
+再次，即便进入到这个“编译”的流程，Sizzle还做了我们前面为了优先解释清楚流程而暂时忽略、没有介绍的缓存机制。“编译”入口，会调用第三个核心方法superMatcher。跟踪进去看，compile方法将根据selector生成的匹配函数缓存起来了。还不止如此，再看tokenize方法，它其实也将根据selector做的分词结果缓存起来了。也就是说，当我们执行过一次Sizzle (selector)方法以后，下次再直接调用Sizzle (selector)方法，它内部最耗性能的“编译”过程不会再耗太多性能了，直接取之前缓存的方法就可以了。我在想所谓“编译”的最大好处之一可能也就是便于缓存，所谓“编译”在这里可能也就可以理解成是生成预处理的函数存储起来备用
 
 在Sizzle中，当浏览器支持querySelectorAll方法时，会重写Sizzle。但是在重写时，会根据不同情况提出各种提速方案：
 
@@ -182,8 +182,83 @@ Sizzle.find主查找函数和Sizzle.filter过滤函数实现原理：
 
 （2）getElementsByTagName内部也使用了缓存，而且返回的是NodeList对象，querySelectorAll返回的是一个StaticNodeList对象，前面是动态的，后面是静态的。区别在于：document.getElementsByTagName("div") == document.getElementsByTagName("div"),返回真，document.querySelectorAll("div") == document.querySelectorAll("div")，返回false.返回true的，意味着它们拿到的同是cache引用。返回false意味着每次返回都是不一样的object。数据表明：创建一个动态的NodeList对象比创建一个静态的StaticNodeList对象快90%.
 
+##使用选择器的几点建议
 
+正确使用选择器引擎对于提高页面性能起了至关重要的作用。使用合适的选择器表达式可以提高性能、增强语义并简化逻辑。在传统用法中，最常用的简单选择器包括ID选择器、Class选择器和类型标签选择器。其中ID选择器是速度最快的，这主要是因为它使用JavaScript的内置函数getElementById()；其次是类型选择器，因为它使用JavaScript的内置函数getElementsByTag()；速度最慢的是Class选择器，其需要通过解析 HTML文档树，并且需要在浏览器内核外递归，这种递归遍历是无法被优化的。
 
+Class选择器在文档中使用频率靠前，这无疑会增加系统的负担，因为每使用一次Class选择器，整个文档就会被解析一遍，并遍历每个节点。
+
+对于`$("input[type=checkbox]")`和`$("input:checkbox")`,对于现代浏览器，`$("input[type=checkbox]")`可以使用`querySelectorAll`这种内置方来查找,$(‘input:text’)，采用了jQuery自定义的选择器表达式:text，.querySelectorAll()方法无法解析。所以前一种效率明显高于后一种。
+
+###多用ID选择器 , 总是从#id选择器来继承
+
+多用ID选择器，这是一个明智的选择。即使选择的元素没有ID，也可以从父级元素中添加一个ID选择器，这样就会缩短节点访问的路程。这是jQuery选择器的一条黄金法则。jQuery选择一个元素最快的方法就是用ID来选择了
+
+###使一个选择器的右边更具有特征，相对而言，选择器的左边可以少一些特征性
+
+由于css选择器引擎的从右到左解析的特性，右边约具有特征，下一步循环筛选的元素的基数越少，速度越快。
+
+### 对于class选择器，尽可能使用"tag.class"类型的选择符
+
+每使用一次Class选择器，如果不加tag,整个文档就会被解析一遍，并遍历每个节点，因为这时候sizzle需要用getElementsByTagName(*)，取出搜索域中的所有节点。但是加了tag后getElementsByTagName(tag)会大大缩小搜索范围。
+
+### 避免过度的约束，让层级更简单
+
+由于从右到左的解析原则，找到最右边seed子集后，左边的层级都用来筛选了，验证子集中哪些是符合的。层级越复杂，验证筛选的流程越多。
+
+### 避免使用全局选择器*
+
+无论你将*使用在哪一级，都会极大的降低性能，需要遍历每一层元素。
+
+### 多用父子关系，少用嵌套关系
+
+使用parent>child代替parent child。因为">"是child选择器，只从子节点里匹配，不递归。而" "是后代选择器，递归匹配所有子节点及子节点的子节点，即后代节点。
+
+下面六个选择器，都是从父元素中选择子元素。你知道哪个速度最快，哪个速度最慢吗?
+
+	$('.child', $parent)
+	$parent.find('.child')
+	$parent.children('.child')
+	$('#parent > .child')
+	$('#parent .child')
+	$('.child', $('#parent'))
+	
+- $('.child', $parent)：给定一个DOM对象，然后从中选择一个子元素。jQuery会自动把这条语句转成$.parent.find('child')，这会导致一定的性能损失。
+
+- $parent.find('.child')： 这条是最快的语句。.find()方法会调用浏览器的原生方法（getElementById，getElementByName，getElementByTagName等等），所以速度较快。
+
+- parent.children('.child')：这条语句在jQuery内部，会使用$.sibling()和javascript的nextSibling()方法，一个个遍历节点。它比最快的形式大约慢50%
+
+- $('#parent > .child')： jQuery内部使用Sizzle引擎，处理各种选择器。Sizzle引擎的选择顺序是从右到左，所以这条语句是先选.child，然后再一个个过滤出父元素#parent，这导致它比最快的形式大约慢70%。
+
+- $('#parent .child')：这条语句与上一条是同样的情况。但是，上一条只选择直接的子元素，这一条可以于选择多级子元素，所以它的速度更慢，大概比最快的形式慢了77%。
+
+- $('.child', $('#parent'))： jQuery内部会将这条语句转成$('#parent').find('.child')，比最快的形式慢了23%。
+
+### 缓存jQuery对象
+
+如果选出结果不发生变化的话，不妨缓存jQuery对象，这样就可以提高系统性能。养成缓存jQuery对象的习惯可以让你在不经意间就能够完成主要的性能优化。如：
+
+	var a= $( ' .aaron' );   
+	for (i = 0 ; i < 10000 ; i ++ ) ... {   
+	     a.append(i);   
+	}
+	
+### 多使用链式调用
+
+如：
+
+	$('#news').find('tr.alt').removeClass('alt').end().find('tbody').each(function() {
+	        $(this).children(':visible').has('td').filter(':group(3)').addClass('alt');
+	   });
+   
+链式调用优于性能的原因是链式将选择器选择结果缓存了。
+
+采用find(),end(),children(),has,filter()等方法，来过滤结果集，减少$()查找方法调用，提升性能。
+
+### 尽量使用符合CSS语法规范的CSS选择器表达式，以此来避免使用jQuery自定义的选择器表达式
+
+CSS选择器表达式可以使用js内置方法querySelectorAll来查找，而jquery自定义选择器需要sizzle去遍历dom树根据修饰器过滤确定最后结果。
 
 ## 黄金外链
 
