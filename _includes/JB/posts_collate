@@ -23,8 +23,24 @@ Usage:
   {% for post in posts_collate  %}
     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
     {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
-    {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-    {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+
+    {% comment %}<!-- 
+      这里是个巨大的坑。。。liquid 居然没有while类的循环
+      bug: 不同类型的文章在时间排序时会被放到一起，post.previous可能不是当前类别下的文章
+      这里只能暴力的判断2层了，如果连续发了2篇不在该类下的文章，还是会导致该类下的时间分类错误。
+    -->{% endcomment %}
+    {% if post.previous.category == post.category %}
+      {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+      {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+    {% else %}
+      {% if post.category == post.previous.previous.category %}
+        {% capture next_year %}{{ post.previous.previous.date | date: "%Y" }}{% endcapture %}
+        {% capture next_month %}{{ post.previous.previous.date | date: "%B" }}{% endcapture %}
+      {% else %}
+        {% capture next_year %}{{ post.previous.previous.previous.date | date: "%Y" }}{% endcapture %}
+        {% capture next_month %}{{ post.previous.previous.previous.date | date: "%B" }}{% endcapture %}
+      {% endif %}
+    {% endif %}
   
     {% if forloop.first %}
       <div class="row">
