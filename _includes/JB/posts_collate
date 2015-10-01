@@ -12,7 +12,7 @@ Usage:
     For normal chronological order:
       1) Change the for loop to this:
         => 'for post in site.posts reversed'
-      2) Next make sure to change 'post.previous.date' to:
+      2) Next make sure to change 'post.next.date' to:
         => 'post.next.date'
         
 -->{% endcomment %}
@@ -22,23 +22,29 @@ Usage:
 {% else %}
   {% for post in posts_collate  %}
     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-    {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+    {% capture this_month %}{{ post.date | date: "%m" }}{% endcapture %}
 
     {% comment %}<!-- 
       这里是个巨大的坑。。。liquid 居然没有while类的循环
-      bug: 不同类型的文章在时间排序时会被放到一起，post.previous可能不是当前类别下的文章
+      bug: 不同类型的文章在时间排序时会被放到一起，post.next可能不是当前类别下的文章
       这里只能暴力的判断2层了，如果连续发了2篇不在该类下的文章，还是会导致该类下的时间分类错误。
     -->{% endcomment %}
-    {% if post.previous.category == post.category %}
-      {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-      {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+
+    {% if forloop.first %}
+        {% capture next_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+        {% capture next_month %}{{ post.date | date: "%m" }}{% endcapture %}
     {% else %}
-      {% if post.category == post.previous.previous.category %}
-        {% capture next_year %}{{ post.previous.previous.date | date: "%Y" }}{% endcapture %}
-        {% capture next_month %}{{ post.previous.previous.date | date: "%B" }}{% endcapture %}
+      {% if post.next.category == post.category %}
+        {% capture next_year %}{{ post.next.date | date: "%Y" }}{% endcapture %}
+        {% capture next_month %}{{ post.next.date | date: "%m" }}{% endcapture %}
       {% else %}
-        {% capture next_year %}{{ post.previous.previous.previous.date | date: "%Y" }}{% endcapture %}
-        {% capture next_month %}{{ post.previous.previous.previous.date | date: "%B" }}{% endcapture %}
+        {% if post.category == post.next.next.category %}
+          {% capture next_year %}{{ post.next.next.date | date: "%Y" }}{% endcapture %}
+          {% capture next_month %}{{ post.next.next.date | date: "%m" }}{% endcapture %}
+        {% else %}
+          {% capture next_year %}{{ post.next.next.next.date | date: "%Y" }}{% endcapture %}
+          {% capture next_month %}{{ post.next.next.next.date | date: "%m" }}{% endcapture %}
+        {% endif %}
       {% endif %}
     {% endif %}
   
@@ -47,59 +53,62 @@ Usage:
         <div class="article_year">
                 <img src="{{ ASSET_PATH }}/img/title.png">
         </div>
-        <h2 style="float:left;">{{this_year}}</h2>
+        <h2 style="float:left;">{{this_year}} 年</h2>
       </div>
 
       <div class="row">
         <div class="article_month">
                 <img src="{{ ASSET_PATH }}/img/title.png">
         </div>
-        <h3>{{this_month}}</h3>
+        <h3>{{this_month}} 月</h3>
       </div>
       <div class="row">
-    {% endif %}
-      <a href="{{ BASE_PATH }}{{ post.url }}">
-        <div class="col-md-4 list_article_wrap">
-          <div class="list_article">
-                <span class="glyphicon glyphicon-send" style="padding-right: 15px;color: #fff;"></span>
-                <span class="article_title">{{ post.title }}</span>
-              <div class="title_time">{{ post.date | date: "%Y . %B . %e" }} </div>
-          </div>
-        </div>
-      </a>
-  
-    {% if forloop.last %}
-      </div>
     {% else %}
       {% if this_year != next_year %}
         </div>
+
         <div class="row">
           <div class="article_year">
                 <img src="{{ ASSET_PATH }}/img/title.png">
           </div>
-          <h2 style="float:left;">{{next_year}}</h2>
+          <h2 style="float:left;">{{this_year}} 年</h2>
         </div>
 
         <div class="row">
           <div class="article_month">
                   <img src="{{ ASSET_PATH }}/img/title.png">
           </div>
-          <h3 >{{next_month}}</h3>
+          <h3 >{{this_month}} 月</h3>
         </div>
         <div class="row">
       {% else %}    
         {% if this_month != next_month %}
           </div>
+
           <div class="row">
             <div class="article_month">
                     <img src="{{ ASSET_PATH }}/img/title.png">
             </div>
-            <h3 >{{next_month}}</h3>
+            <h3 >{{this_month}} 月</h3>
           </div>
           <div class="row">
         {% endif %}
       {% endif %}
+
     {% endif %}
+
+      
+        <a href="{{ BASE_PATH }}{{ post.url }}">
+          <div class="col-md-4 list_article_wrap">
+            <div class="list_article">
+                  <span class="glyphicon glyphicon-send" style="padding-right: 15px;color: #fff;"></span>
+                  <span class="article_title">{{ post.title }}</span>
+                <div class="title_time">{{ post.date | date: "%F" }} </div>
+            </div>
+          </div>
+        </a>
+      
+    
   {% endfor %}
 {% endif %}
 {% assign posts_collate = nil %}
