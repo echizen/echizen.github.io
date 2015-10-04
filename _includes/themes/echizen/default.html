@@ -44,28 +44,35 @@
                 width: 100%;
                 height: 100%;
                 position:fixed;
+                z-index: -1;
+            }
+
+            .post-bg{
+                background-image: url("{{ ASSET_PATH }}/img/line-img.png");
+                background-repeat: repeat;
+                width: 100%;
+                height: 100%;
+                position:fixed;
+                z-index: -1;
             }
         </style>
     </head>
 
     <body>
-        <div class="bg">
-            
-        </div>
-                <ul class="nav">
-                    {% assign pages_list = site.pages %}
-                    {% assign group = 'navigation' %}
-                    {% include JB/pages_list %}
-                </ul>
+        <ul class="nav">
+            {% assign pages_list = site.pages %}
+            {% assign group = 'navigation' %}
+            {% include JB/pages_list %}
+        </ul>
 
-       <div class="container content_wrap">
-                {{ content }}
-            <footer>
-                <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
-                  with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-                </p>
-            </footer>
-       </div>
+       
+        {{ content }}
+        <footer>
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
+              with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+            </p>
+        </footer>
+       
 
     {% include JB/analytics %} 
     </body>
