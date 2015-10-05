@@ -26,6 +26,7 @@ theme :
 
         <!-- Le styles -->
         <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ ASSET_PATH }}/css/echizen.css?body=1" rel="stylesheet" type="text/css" media="all">
 
         <!-- Le fav and touch icons -->
       <!-- Update these with your own images -->
@@ -75,7 +76,7 @@ theme :
             .index_pic img{
                 width: 250px;
                 display: block;
-                margin: 0px auto;
+                margin: 10px auto 0px;
                 border-radius: 50%;
                 border: 2px solid #ccc;
             }
@@ -94,19 +95,21 @@ theme :
             }*/
 
             .category_wrap{
-                height: 190px;
+                /*height: 190px;*/
                 padding-top: 20px;
             }
 
-            .nav{
+            /*.nav{
                 width: 770px;
-            }
+            }*/
 
             .nav li{
-                float: left;
+                /*float: left;*/
                 margin-left: 12px;
                 margin-right: 12px;
                 margin-top: 10px;
+                margin-bottom: 10px;
+                display:inline-block
             }
 
             .nav li:before{
@@ -138,35 +141,37 @@ theme :
                 height: 130px;
                 line-height: 130px;
                 padding: 0px;
-                font-size: 25px;
+                font-size: 1.2em;
                 text-decoration: none;
                 display: block;
             }
 
-            .nav li:hover,.nav li:focus{
-                margin-top: 0px;
-                height: 150px;
-                width: 150px;
-                margin-left: 2px;
-                margin-right: 2px;
-                
-                -webkit-transition: all .8s ease;
-                -moz-transition: all .8s ease;
-                -o-transition: all .8s ease;
-                transition: all .8s ease;
-            }
+            @media (min-width: 960px) {
+              .nav li:hover,.nav li:focus{
+                  margin-top: 0px;
+                  height: 150px;
+                  width: 150px;
+                  margin-left: 2px;
+                  margin-right: 2px;
+                  
+                  -webkit-transition: all .8s ease;
+                  -moz-transition: all .8s ease;
+                  -o-transition: all .8s ease;
+                  transition: all .8s ease;
+              }
 
-            .nav li a:hover,.nav li:focus{
-                color: #FF9900;
-                height: 150px;
-                line-height: 150px;
-                padding: 0px;
-                font-size: 30px;
-                background-color: transparent;
-                -webkit-transition: all .8s ease;
-                -moz-transition: all .8s ease;
-                -o-transition: all .8s ease;
-                transition: all .8s ease;
+              .nav li a:hover,.nav li:focus{
+                  color: #FF9900;
+                  height: 150px;
+                  line-height: 150px;
+                  padding: 0px;
+                  font-size: 30px;
+                  background-color: transparent;
+                  -webkit-transition: all .8s ease;
+                  -moz-transition: all .8s ease;
+                  -o-transition: all .8s ease;
+                  transition: all .8s ease;
+              }           
             }
 
             .motto{
@@ -179,6 +184,37 @@ theme :
                 position: fixed;
                 bottom: 30px;
             }
+
+            /*平板适配*/
+            @media (max-width: 979px) {
+              
+            }
+
+            /*手机适配*/
+            @media (max-width: 480px) {
+              .archive-li{
+                display: none !important;
+              }
+              .nav li{
+                width: 100px;
+                height: 100px;
+              }
+              .nav li a{
+                  height: 100px;
+                  line-height: 100px;
+              }
+
+              .motto{
+                font-size: 20px;
+                text-align: center;
+              }
+
+              .index_pic img {
+                width: 130px;
+              }
+            }
+
+            
         </style>
     </head>
 
@@ -194,12 +230,12 @@ theme :
             </div> -->
 
             <div class="col-md-12 category_wrap">
-                <div class="nav center-block">
+                <div class="nav center-block flex mul-line flex_center">
                     {% assign pages_list = site.pages %}
                     {% assign group = 'navigation' %}
                     {% include JB/pages_list %}
 
-                    <li>
+                    <li class="flex_item archive-li">
                         <a href="/e_archive.html">archive</a>
                     </li>
                 </div>

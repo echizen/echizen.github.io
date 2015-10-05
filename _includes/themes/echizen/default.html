@@ -44,6 +44,10 @@
                 width: 100%;
                 height: 100%;
                 position:fixed;
+                top:0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
                 z-index: -1;
             }
 
@@ -53,13 +57,17 @@
                 width: 100%;
                 height: 100%;
                 position:fixed;
+                top:0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
                 z-index: -1;
             }
         </style>
     </head>
 
     <body>
-        <ul class="nav">
+        <ul class="tag-nav">
             {% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}
             {% include JB/pages_list %}
