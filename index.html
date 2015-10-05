@@ -44,12 +44,24 @@ theme :
             }*/
 
             body{
-                background: url('{{ ASSET_PATH }}/img/indexbg1.jpg') no-repeat;
                 color: #bbb;
                 font-size: 18px;
-                background-size: 100%;
                 font-family: "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
                 background-color: #fff;
+            }
+
+            .index-bg{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0px;
+                left: 0px;
+                right: 0px;
+                bottom: 0px;
+                background: url('{{ ASSET_PATH }}/img/indexbg1.jpg') no-repeat;
+                background-size: 100%;
+                background-size: cover;
+                background-position-x: 50%;
             }
 
             .nav li{
@@ -171,6 +183,7 @@ theme :
     </head>
 
     <body>
+        <div class="index-bg"></div>
         <div class="col-md-12 tranbox">
             <div class="col-md-12 name">
                 折腾的blog
