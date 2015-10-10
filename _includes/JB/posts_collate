@@ -20,7 +20,7 @@ Usage:
 <div class="bg">
             
 </div>
-<div class="container content_wrap">
+<div class="container collate content_wrap">
 
   <div class="col-md-12 time_line">
   {% if site.JB.posts_collate.provider == "custom" %}
