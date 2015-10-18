@@ -398,3 +398,23 @@ body{
     display: inline-block;
     margin-top: 10px;
 }
+
+.tag-nav{
+  margin-bottom: 0px;
+}
+
+.discovery-post .top-comment .user{
+  color: #999;
+}
+
+.discovery-post .top-comment p{
+  color: #ccc;
+}
+
+#footer a{
+  color: #cbd2d6;
+}
+
+#footer{
+  border-color: #eaedee;
+}

@@ -202,6 +202,8 @@ tags: [tutorial 进阶 前端 js html5]
 	
 同时给.move_area中的.nub_opt绑定了angularjs的ng-click也就是click事件。
 
+{% raw %}
+
 	<div class="container-fluid cart_item" ng-repeat='item in items'>
 	    <div class="col-xs-12 clear_padding move_area" move-area="yes">
 	    <div class="touch_area">
@@ -234,6 +236,7 @@ tags: [tutorial 进阶 前端 js html5]
 	    </div>
 	</div>
 	
+{% endraw %}
 	
 关键是一个很小的问题。。。却导致了很严重的后果。我在touchstart、touchmove、touchend事件绑定的函数中都用了`preventDefault()`。
 
@@ -278,7 +281,7 @@ angularjs数据双向绑定的强大毋庸置疑，虽说angular的理念是避�
 不建议自己用在angularJs之外再用jquery，事件加载和dom解析会交替产生很多头疼的问题。方案有三：
 
 + 闭包原生Js中绑定事件
-	我这类初学者只能拿这个方案暂时解燃眉之急，没有太大问题产生。要注意angurJs的解析在原生JS之后，也就是`{{}}`指令和`ng-repeat`中的内容会在你的JS代码执行之后才解析，这时**如果你要对AngularJs生成的dom元素绑事件，一定要window.load=yourEventFunc。**
+	我这类初学者只能拿这个方案暂时解燃眉之急，没有太大问题产生。要注意angurJs的解析在原生JS之后，也就是`/{/{}}`指令和`ng-repeat`中的内容会在你的JS代码执行之后才解析，这时**如果你要对AngularJs生成的dom元素绑事件，一定要window.load=yourEventFunc。**
 	
 + 使用插件
 	人笨就要学会多偷懒，angularJs的发展使基于他的插件越来越多，如大名鼎鼎的[angular-bootstrap](http://angular-ui.github.io/bootstrap/)。使用他们封装的事件会事半功倍。

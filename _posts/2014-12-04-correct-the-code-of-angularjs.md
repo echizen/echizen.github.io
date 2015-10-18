@@ -15,6 +15,8 @@ angulajs入门，用的是O'REILLY的《AngularJs》一书，这是一本好书�
 ##1. page6
 原：
 
+{% raw %}
+
 	<html ng-app="myapp">
 	    <head>
 	        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -26,8 +28,8 @@ angulajs入门，用的是O'REILLY的《AngularJs》一书，这是一本好书�
 	        <div ng-repeat='item in items'>
 	            <span>{{item.title}}</span>
 	            <input ng-model='item.quantity'>
-	            <span>{{item.price | currency}}</span>
-	            <span>{{item.price*item.quantity | currency}}</span>
+	            <span>{{item.price | currency}}	            </span>
+	            <span>{{item.price * item.quantity | currency}}</span>
 	            <button ng-click="remove($index)">Remove</button>
 	        </div>
 	        
@@ -45,7 +47,8 @@ angulajs入门，用的是O'REILLY的《AngularJs》一书，这是一本好书�
 	        </script>
 	    </body>
 	</html>
-	
+
+{% endraw %}	
 	
 修改的地方：
 
