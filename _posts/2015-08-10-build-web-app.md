@@ -278,5 +278,4 @@ filter的处理方式相同。
 
 css方面试试less,可以节省不少时间
 
-html使用jade,像个后台一样写html。
 		
