@@ -113,6 +113,11 @@ body{
     
 }
 
+.tag-nav{
+  margin-bottom: 0px;
+  position: relative;
+  z-index: 1;
+}
 
 .tag-nav li{
     width: 100px;
@@ -196,23 +201,23 @@ body{
 .tag-nav li:hover,.tag-nav li:focus,.tag-nav li.active{
     width: 120px;
     height: 120px;
-    -webkit-transition: all .8s ease;
-    -moz-transition: all .8s ease;
-    -o-transition: all .8s ease;
-    transition: all .8s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
 }
 
-.tag-nav li a:hover,.tag-nav li:focus,.tag-nav li.active a{
+.tag-nav li:hover a,.tag-nav:focus li,.tag-nav li.active a{
     color: #FF9900;
     height: 120px;
     line-height: 120px;
     padding: 0px;
     font-size: 25px;
     background-color: transparent;
-    -webkit-transition: all .8s ease;
-    -moz-transition: all .8s ease;
-    -o-transition: all .8s ease;
-    transition: all .8s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
 }
 .title_wrap{
     -webkit-box-shadow: inset 0px 0px 70px 10px #CCFFCC;
@@ -397,10 +402,6 @@ body{
 .pagination>li {
     display: inline-block;
     margin-top: 10px;
-}
-
-.tag-nav{
-  margin-bottom: 0px;
 }
 
 .discovery-post .top-comment .user{

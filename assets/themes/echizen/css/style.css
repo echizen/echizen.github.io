@@ -63,12 +63,16 @@ h3,h4{
 
 /* line 53, ../_sass/_base.scss */
 h1 {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 /* line 57, ../_sass/_base.scss */
 h2 {
-  font-size: 30px;
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 20px;
 }
 
 p{

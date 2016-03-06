@@ -21,6 +21,7 @@ tags: [浏览器, 缓存]
 1. status code:304
 
 2. request header:
+
    ![image](https://echizen.github.io/assets/blog-img/blog2016030501.jpg)
  
 3. 特点：`if-modify-since`
@@ -29,15 +30,17 @@ tags: [浏览器, 缓存]
 
 1. status code:304
 2. request header:
- ![image](https://echizen.github.io/assets/blog-img/blog2016030502.jpg)
+
+	![image](https://echizen.github.io/assets/blog-img/blog2016030502.jpg)
   
 3. 特点：`cache-control:max-age=0`、`if-modify-since`
 
 ### cmd+shift+R(windows为ctrl+f5)
 
-1.status code:200
+1. status code:200
 2. request header:
-   ![image](https://echizen.github.io/assets/blog-img/blog2016030503.jpg)
+
+	![image](https://echizen.github.io/assets/blog-img/blog2016030503.jpg)
    
 3. 特点：`Cache-Control:no-cache`、`Pragma:no-cache`
 

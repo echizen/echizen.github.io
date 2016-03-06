@@ -25,7 +25,7 @@ theme :
         <![endif]-->
 
         <!-- Le styles -->
-        <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ ASSET_PATH }}/bootstrap-min/css/bootstrap.min.css" rel="stylesheet">
         <link href="{{ ASSET_PATH }}/css/echizen.css?body=1" rel="stylesheet" type="text/css" media="all">
 
         <!-- Le fav and touch icons -->
@@ -73,12 +73,18 @@ theme :
                 box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.67);
             }
 
-            .index_pic img{
+            .avatar-wrap{
                 width: 250px;
-                display: block;
+                height: 250px;
                 margin: 10px auto 0px;
                 border-radius: 50%;
                 border: 2px solid #ccc;
+                overflow: hidden;
+            }
+
+            .index_pic img{
+                width: 250px;
+                display: block;
             }
 
             .name{
@@ -95,7 +101,7 @@ theme :
             }*/
 
             .category_wrap{
-                /*height: 190px;*/
+                height: 180px;
                 padding-top: 20px;
             }
 
@@ -141,36 +147,36 @@ theme :
                 height: 130px;
                 line-height: 130px;
                 padding: 0px;
-                font-size: 1.2em;
+                font-size: 25px;
                 text-decoration: none;
                 display: block;
             }
 
             @media (min-width: 960px) {
               .nav li:hover,.nav li:focus{
-                  margin-top: 0px;
+                  margin-top: -2px;
                   height: 150px;
                   width: 150px;
                   margin-left: 2px;
                   margin-right: 2px;
                   
-                  -webkit-transition: all .8s ease;
-                  -moz-transition: all .8s ease;
-                  -o-transition: all .8s ease;
-                  transition: all .8s ease;
+                  -webkit-transition: all .3s ease;
+                  -moz-transition: all .3s ease;
+                  -o-transition: all .3s ease;
+                  transition: all .3s ease;
               }
 
-              .nav li a:hover,.nav li:focus{
+              .nav li:focus a,.nav li:hover a{
                   color: #FF9900;
                   height: 150px;
                   line-height: 150px;
                   padding: 0px;
                   font-size: 30px;
                   background-color: transparent;
-                  -webkit-transition: all .8s ease;
-                  -moz-transition: all .8s ease;
-                  -o-transition: all .8s ease;
-                  transition: all .8s ease;
+                  -webkit-transition: all .3s ease;
+                  -moz-transition: all .3s ease;
+                  -o-transition: all .3s ease;
+                  transition: all .3s ease;
               }           
             }
 
@@ -242,7 +248,9 @@ theme :
             </div>
 
             <div class="col-md-12 index_pic">
-                <img class="img-rounded" src="{{ ASSET_PATH }}/img/avatar.jpg">
+                <div class="avatar-wrap">
+                    <img class="img-rounded" src="{{ ASSET_PATH }}/img/avatar2.jpg">
+                </div>
             </div>
 
             <div class="col-md-12 motto">
