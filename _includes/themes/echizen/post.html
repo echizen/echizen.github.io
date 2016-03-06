@@ -36,7 +36,7 @@
         </ul>
       {% endunless %}  
       
-        
+      <div class="col-md-12"> 
         <ul class="pagination">
         {% if page.previous %}
           <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">&laquo; Previous</a></li>
@@ -50,7 +50,7 @@
           <li class="next disabled"><a>Next &rarr;</a>
         {% endif %}
         </ul>
-        
+      </div>
         {% include JB/comments %}
       </div>
     </div>
