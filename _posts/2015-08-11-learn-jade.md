@@ -9,13 +9,13 @@ tags: [basic, tool]
 
 很早就想用jade了，最近辞去工作，在家进修，可以好好研究一下想学的东西了。环境最麻烦，所以这次有时间记录一下从0开始使用工具的过程。至于具体写法，官网说的很详细。
 
-#安装
+# 安装
 
 全局安装：
 
 	sudo npm install jade -g
 	
-#jade->html
+# jade->html
 
 先写一个jade文件，如demo.jade:
 
@@ -47,7 +47,7 @@ tags: [basic, tool]
 
 	jade -P demo.jade
 	
-#文件夹移动
+# 文件夹移动
 
 如果是实际用的话，肯定要考虑分文件夹。
 
@@ -65,7 +65,7 @@ tags: [basic, tool]
 
 	jade test.jade -P --out ../html
 	
-#监听文件变化
+# 监听文件变化
 
 运行以下命令，可以让test.jade变化后,test.html随时更新
 
@@ -77,7 +77,7 @@ tags: [basic, tool]
 	
 但是新增文件时要重启才有效果，监听不了文件的增删
 	
-#subilime工具
+# subilime工具
 
 一开始jade文件在sublime里是惨白色，没有语法高亮肯定不合习惯。我们可以装点jade插件.
 
@@ -87,9 +87,9 @@ tags: [basic, tool]
 
 我装了第一个jade,现在有语法高亮了。
 
-#使用细节
+# 使用细节
 
-##换行
+## 换行
 
  div内内容过长时会需要换行，换行是`.+space`,eg:
  
@@ -99,7 +99,7 @@ tags: [basic, tool]
 	        后者覆盖前者。
 	        换行是通过'.'+' '实现
 	        
-##空格的重要性
+## 空格的重要性
 
       ul#explict
         -
@@ -109,11 +109,11 @@ tags: [basic, tool]
                     
   这种东西,`-`和`list`之间只有一个换行符，不能有空格。`each`必须顶格，`li`和`=`之间必须没有空格。
   
-##markdown filter
+## markdown filter
 
 	Transformers.markdown is deprecated, you must replace the :markdown jade filter, with :markdown-it and install jstransformer-markdown-it before you update to jade@2.0.0.
 	
-##include 和 extends同时使用
+## include 和 extends同时使用
 
 公用头在非单页面应用中是非常中要的，extends可以让我们继承模板，include可以引入外部模板，于是我们便可以这么干：
 
@@ -164,6 +164,6 @@ tags: [basic, tool]
 
 最后那个资源引入真的很爽，你可以在把js抽出一个新文件，但是渲染时依然被拉入html中作为内嵌js了。我们很多时候抽出js都只是为了开发人员方便，对计算机最友好的方式其实是都写在一个页面，这样可以避免需要再一次通过网络请求资源。
 
-#感受
+# 感受
 
 敲了半天的感受就是jade让前端像写js一样写html，能定义变量，使用变量。但是应用场景貌似更适合node模板引擎先渲染，而前后端完全分离的前端mvc模式并不显其优势。作为被node先渲染的模板，可以将一些变量先传入，再有jade语法做功能判断，可是实现动态html。而前后端完全分离后，html中不会插入任何后台代码，这样变量的作用就小了一半。

@@ -13,7 +13,7 @@ tags: [js,jquery,pro]
 
 所谓jquery选择器，其实大多数是css选择器的包装。
 
-##html渲染解析过程
+## html渲染解析过程
 
 浏览器从下载文档到显示页面的过程是个复杂的过程，这里包含了重绘和重排。各家浏览器引擎的工作原理略有差别，但也有一定规则。
 
@@ -136,7 +136,7 @@ type可能是：`ID,TAG,CLASS,ATTR,CHILD,PSEUDO`以及表示层级关系的`+,>,
 然后sizzle按照一定的顺序去匹配筛选这个数组中的元素，找到正确匹配的元素。
 
 
-##sizzle匹配顺序（内容待更新）
+## sizzle匹配顺序（内容待更新）
 
 当sizzle处理多层选择器，按照从右到左的原则，特殊选择符会从左到右。
 
@@ -152,7 +152,7 @@ Sizzle.find主查找函数和Sizzle.filter过滤函数实现原理：
 
 这里需要讲一下种子集。
 
-###种子集
+### 种子集
 
 种子集就是通过最右边的选择器组得到的元素集合。比如："div.aaa span.bbb"，最右边的选择器组就是"span.bbb"，这时引擎会根据浏览器的支持情况选择getElementsByTagName(span)或getElementsByClassName(bbb)得到一组元素，然后再通过class(bbb)或tagName(span)进行过滤，这时得到的集合就是种子集。
 
@@ -162,7 +162,7 @@ Sizzle.find主查找函数和Sizzle.filter过滤函数实现原理：
 
 所以Sizzle.find就会根据Sizzle.selectors.order数组，依次调用正则，从最右的选择器中切下需要的部分，找到粗糙的节点集合。(针对"span.bbb"，id调用正则时，找不到，然后class，调用正则，找到.bbb，因此就调用getElementsByClassName(bbb)得到一组数据，最后通过Sizzle.filter过滤取到的数据，过滤条件是tagName(span))
 
-###映射集
+### 映射集
 
 当我们取得种子集后，会将种子集一份，这就是映射集。
 
@@ -182,7 +182,7 @@ Sizzle.find主查找函数和Sizzle.filter过滤函数实现原理：
 
 （2）getElementsByTagName内部也使用了缓存，而且返回的是NodeList对象，querySelectorAll返回的是一个StaticNodeList对象，前面是动态的，后面是静态的。区别在于：document.getElementsByTagName("div") == document.getElementsByTagName("div"),返回真，document.querySelectorAll("div") == document.querySelectorAll("div")，返回false.返回true的，意味着它们拿到的同是cache引用。返回false意味着每次返回都是不一样的object。数据表明：创建一个动态的NodeList对象比创建一个静态的StaticNodeList对象快90%.
 
-##使用选择器的几点建议
+## 使用选择器的几点建议
 
 正确使用选择器引擎对于提高页面性能起了至关重要的作用。使用合适的选择器表达式可以提高性能、增强语义并简化逻辑。在传统用法中，最常用的简单选择器包括ID选择器、Class选择器和类型标签选择器。其中ID选择器是速度最快的，这主要是因为它使用JavaScript的内置函数getElementById()；其次是类型选择器，因为它使用JavaScript的内置函数getElementsByTag()；速度最慢的是Class选择器，其需要通过解析 HTML文档树，并且需要在浏览器内核外递归，这种递归遍历是无法被优化的。
 
@@ -190,11 +190,11 @@ Class选择器在文档中使用频率靠前，这无疑会增加系统的负担
 
 对于`$("input[type=checkbox]")`和`$("input:checkbox")`,对于现代浏览器，`$("input[type=checkbox]")`可以使用`querySelectorAll`这种内置方来查找,$(‘input:text’)，采用了jQuery自定义的选择器表达式:text，.querySelectorAll()方法无法解析。所以前一种效率明显高于后一种。
 
-###多用ID选择器 , 总是从#id选择器来继承
+### 多用ID选择器 , 总是从#id选择器来继承
 
 多用ID选择器，这是一个明智的选择。即使选择的元素没有ID，也可以从父级元素中添加一个ID选择器，这样就会缩短节点访问的路程。这是jQuery选择器的一条黄金法则。jQuery选择一个元素最快的方法就是用ID来选择了
 
-###使一个选择器的右边更具有特征，相对而言，选择器的左边可以少一些特征性
+### 使一个选择器的右边更具有特征，相对而言，选择器的左边可以少一些特征性
 
 由于css选择器引擎的从右到左解析的特性，右边约具有特征，下一步循环筛选的元素的基数越少，速度越快。
 

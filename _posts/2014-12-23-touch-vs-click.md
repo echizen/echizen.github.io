@@ -7,7 +7,7 @@ tags: [tutorial 进阶 前端 js html5]
 ---
 {% include JB/setup %}
 
-##故事来源（可忽略）
+## 故事来源（可忽略）
 
 最近做了一个购物车的页面，既有滑动删除又有点击增减数量，同一区域发生了2件事，发现2个事件没法同时共存。由于这个页面用的是angularjs,开始以为是angularjs与原生js混用，且把原生js没有按angularjs的规则写入angularjs内部，而是写到了angularjs闭合圈的外面,初学angularjs，入门教程都还没看完就在赶项目，不是很熟悉angularjs的事件触发机制，于是跑去看了一天angularjs的事件绑定，以及directive,然后发现不关angularjs的事，测试了一下果然不是。然后又怀疑是事件冒泡的干扰，又去看了几小时事件的冒泡和补获机制，发现也不是。最后才发现是因为手机端touch事件与click事件之间的关系导致。
 
@@ -17,15 +17,15 @@ tags: [tutorial 进阶 前端 js html5]
 
 惨痛教训啊，以后要先试验，再怀疑，再搜索，而不是凭空怀疑导致事件出错的方向，然后google一气。不过这次了解了很多。
 
-##手机端touchstart、touchmove、touchend、mouseover、mousemove、mousedown、mouseup、click事件加载顺序
+## 手机端touchstart、touchmove、touchend、mouseover、mousemove、mousedown、mouseup、click事件加载顺序
 
-###触屏事件
+### 触屏事件
 + touchstart    触摸开始（手指放在触摸屏上）
 + touchmove     拖动（手指在触摸屏上移动）
 + touchend 触摸结束（手指从触摸屏上移开）
 + touchcancel，是在拖动中断时候触发。
 
-###鼠标事件
+### 鼠标事件
 + mouseover 	鼠标进入
 + mousemove		鼠标移动
 + mousedown		鼠标按下触发
@@ -33,7 +33,7 @@ tags: [tutorial 进阶 前端 js html5]
 + click			鼠标点击事件，包括mousedown和mouseup2个过程
 
 
-###触发规则
+### 触发规则
 在触屏操作后，手指提起的一刹那（即发生touchend后），系统会判断接收到事件的element的内容是否被改变：
 
 + 如果内容被改变，会解析为touch事件，接下来的click事件都不会触发，
@@ -44,7 +44,7 @@ tags: [tutorial 进阶 前端 js html5]
 
 因此有关于hover的小技巧，当点击过一个按钮之后，这个按钮就会一直处于hover的状态，此时基于这个伪类所设置的css也是起作用的，直到用手指点击另外一个地方，才会完成mouseout事件。
 
-###触发顺序
+### 触发顺序
 
 测试代码：
 
@@ -99,11 +99,11 @@ tags: [tutorial 进阶 前端 js html5]
 
 关于触发顺序，详细请参考[http://realwall.cn/blog/?p=162](http://realwall.cn/blog/?p=162)
 
-###关于click事件的300ms延时
+### 关于click事件的300ms延时
 
 这篇文章介绍的很详细：[http://thx.github.io/mobile/300ms-click-delay/](http://thx.github.io/mobile/300ms-click-delay/)。
 
-###关于我的bug
+### 关于我的bug
 
 我根据官方API给元素绑定了滑动事件：
 
@@ -243,8 +243,8 @@ tags: [tutorial 进阶 前端 js html5]
 对于touch事件：**`preventDefault()`不仅会阻止触摸时浏览器的缩放、滚动条滚动等，还会导致鼠标事件被禁止**,我只关注了前一点。。。我的网页已针对移动端适配，在head中已加`<meta name="viewport"
     content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">`，preventDefault()已的禁止缩放滚动已不需要。
     
-##加料区
-###手机端click事件又一特性--点透效果
+## 加料区
+### 手机端click事件又一特性--点透效果
 
 都说手机端建议使用touch事件，少用touch事件，但是偶尔也会出问题。
 
@@ -271,11 +271,11 @@ tags: [tutorial 进阶 前端 js html5]
 
 参考：[http://www.douban.com/note/430517401/](http://www.douban.com/note/430517401/)
 
-###tap-event的比较规范的写法
+### tap-event的比较规范的写法
 
 [https://github.com/component/tap-event/blob/master/index.js](https://github.com/component/tap-event/blob/master/index.js)
 
-###angularJs事件绑定
+### angularJs事件绑定
 angularjs数据双向绑定的强大毋庸置疑，虽说angular的理念是避免频繁操作dom元素，但是在良好交互的需求下，给元素绑事件处理还是很必要的，angualarJs的核心文档中只有ng-click、ng-hide、ng-show区区3个事件。
 
 不建议自己用在angularJs之外再用jquery，事件加载和dom解析会交替产生很多头疼的问题。方案有三：

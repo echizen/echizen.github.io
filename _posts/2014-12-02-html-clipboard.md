@@ -7,18 +7,18 @@ tags: [tutorial, html5, 基础, js ]
 ---
 {% include JB/setup %}
 
-#复制链接到剪切板
+# 复制链接到剪切板
 
 最近遇到点击复制链接按钮要将一段网址自动复制到剪切板的需求（走了一些弯路，记载一下）。这可是web与系统的交互啊，第一感是纯粹js做不到。上网一搜，果真是，都是js和flash混搭做到这个功能。
 
 不是html5兴起的时代吗，我马上想到去看看h5有类似功能的API不。
 
-##html5
+## html5
 结论：浏览器处于安全的考虑，禁止web层的脚本直接主动操作系统层的剪切板，但是开放了“被动”的API，也就是说，如果用户主动操作了剪切板，发生了copy、paste的事件，你就可以在监听到这个时间后，通过clipboardData对象操作剪切板的内容。
 
 这虽不满足我的需求，但是还是了解下，毕竟按规范办事比较好，不要动不动就用flash。
 
-###剪贴板事件：
+### 剪贴板事件：
 
 	　　beforecopy：在发生复制操作前触发;
 	　　copy：在发生复制操作的时候触发;
@@ -29,17 +29,17 @@ tags: [tutorial, html5, 基础, js ]
 	　　
 
 
-###不同浏览器下区别
+### 不同浏览器下区别
 在Firefox、Chrome和Safari中，`beforecopy`、`beforecut`和`beforepaste`事件只会在显示针对文本框的上下文菜单(预期将发生剪贴板事件)的情况下触发。但是IE则会在触发`copy`、`cut`和`paste`事件之前先触发这些事件。至于`copy`、`cut`和`paste`事件，只要是在上下文菜单(右键菜单)中选择了相应选项，或者使用了相应的键盘组合键如(ctrl+v)，所有浏览器都会触发他们。要访问剪贴板中的数据，可以通过clipboardData对象：在IE中，`clipboardData对象`是`window`对象的属性;而在Chrome、Safari和Firefox 4+中，`clipboardData对象`是相应`event`对的属性。但是，在Chrome、Safari和Firefox 4+中，只有在处理剪贴板事件期间，clipboardData对象才有效，这是为了防止对剪贴板的未授权访问;在IE中，则可以随时访问clipboardData对象。为了确保跨浏览器兼容，最好只在发生剪贴板事件期间使用这个对象。
 
-###函数
+### 函数
 `getData(text/url)`:在IE下，text和url参数代表将要从剪切板里获得的数据的保存类型,在Chrome、Safari和Firefox 4+中，实际上是MIME类型
 
 `setData(text/url,data)`:text和url参数代表数据类型,在Chrome、Safari和Firefox 4+中，仍是MIME类型。data是要放到剪切板的内容。
 
 `clearData()`:清空剪切板。
 
-###测试
+### 测试
 W3C标准：[http://www.w3.org/TR/clipboard-apis/](http://www.w3.org/TR/clipboard-apis/)
 
 现在浏览器支持度不是很好。
@@ -57,7 +57,7 @@ chrome下这个例子无效[http://jsfiddle.net/c8Ats/7/](http://jsfiddle.net/c8
 但是标准总有一天被执行的么，以后写这个就方便了，不用flash和插件了。
 
 
-##js+flash
+## js+flash
 这就只能找插件了。比较靠谱的是[ZeroClipboard](http://zeroclipboard.org/)
 
 github代码库：[https://github.com/zeroclipboard/zeroclipboard](https://github.com/zeroclipboard/zeroclipboard)

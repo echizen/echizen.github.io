@@ -6,9 +6,9 @@ category: tech
 tags: [jekyll, blog, tutorial]
 ---
 {% include JB/setup %}
-#mac环境下搭建github - jekyll blog，创建自定义风格模板
+# mac环境下搭建github - jekyll blog，创建自定义风格模板
 
-##前篇-博客搭建
+## 前篇-博客搭建
 ------在头回家探亲的国庆佳节，我终于可以有时间搭建好了自己的blog，普天同庆！
 先看官网教程搭建吧，如果喜欢折腾，搭个jekyll框架就好了，再自己折腾样式，如果秉着重视内容，就把jekyll-bootstrapclone下来，直接用他的默认样式.
 
@@ -37,16 +37,16 @@ tags: [jekyll, blog, tutorial]
 ---
 
 
-##主篇-风格主题搭建
+## 主篇-风格主题搭建
 见我的下一篇博客吧[http://echizen.github.io/tech/2014/10-06-custome-blog-style/](http://echizen.github.io/tech/2014/10-06-custome-blog-style/)
 
 ---
 
 
-##尾篇-发布博客
+## 尾篇-发布博客
 有两种方式发布内容：  
 
-###1、`rake post title="Hello World"`
+### 1、`rake post title="Hello World"`
 
 一般写博客都是用这句，这句代码会在 `_post\` 文件夹下新建一个文件，文件名由 _config.yml 里的`permalink: /:categories/:year-:month-:day-:title `的配置决定，都说文件名不要取中文，jekyll系统会把文件名中的中文过滤掉，由于文章中会有title的设置，所以不用中文命名也不是什么痛苦的事啦。
 
@@ -56,7 +56,7 @@ tags: [jekyll, blog, tutorial]
 
 也就是说无论你是`permalink: /:categories/:year-:month-:day-:title `还是什么，都只能显示三种效果，
 
-###2、修改头信息
+### 2、修改头信息
 打开新建的那个文件，新建的文件终端都会输出新建的文件路径，所以只用`open`命令就可以很轻松的用默认的编辑器打开该文件了。（Mac下是Mou打开markdown文件）
 
 		
@@ -89,7 +89,7 @@ tags:给文章打上标签，和category一样，这样两个都是要在页面�
 **以上的参数冒号后一定要多加个空格不然，呵呵，就不能正确解析了**
 
 
-###3、发布博客
+### 3、发布博客
 这一步在我的电脑上不需要，我在本地手动新建的文件，不用`git add`、`git commit`就能`jekyll server`后在本地访问，就看到修改后的效果，很方便，满意后再`commit`。
 
 如果是新增：`git add XXX -> git commit -m 'add XXX'`
@@ -101,5 +101,5 @@ tags:给文章打上标签，和category一样，这样两个都是要在页面�
 
 ps:在中文下，markdown其实挺不好用的，不断切换英文的语法标签和中文。。。
 
-###4、疑难杂症
+### 4、疑难杂症
 markdown里插图片好不方便啊！！！还得加链接。我的做法是，在根目录下的assets下新建一个blog-img文件夹，图片基本来源于截图，我把截图的保存目录直接关联到这个目录，然后在博文中因为考虑到有可能会把.md文件粘到其他地方，我用的又是绝对地址，即https://username.github.io/assets/blog-img/图片名称.png。这样相对方便一点，但是还是没有那种直接在插入图片方便。不知大家用的是什么方法。

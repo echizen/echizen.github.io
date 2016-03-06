@@ -7,7 +7,7 @@ tags: [pro, angularJs, php, 前端]
 ---
 {% include JB/setup %}
 
-##缘由
+## 缘由
 
 前端：angularJs发出ajax请求，提交表单数据。
 
@@ -40,9 +40,9 @@ Status Code:200 OK`，数据发送出去了啊，发送之前打印一遍也是�
 
 仔细把header看了一遍，发现`Content-Type:application/json`,平时用form直接提交数据是`Content-Type:application/x-www-form-urlencoded`。google一下，才知道post请求也有4种方式。
 
-##post请求的4种方式
+## post请求的4种方式
 
-###application/x-www-form-urlencoded
+### application/x-www-form-urlencoded
 
 普通的表单提交，如果不设置enctype 属性，都会以这种方式提交。
 
@@ -53,7 +53,7 @@ Status Code:200 OK`，数据发送出去了啊，发送之前打印一遍也是�
 	
 提交的数据按照 key1=val1&key2=val2 的方式进行编码，key 和 val 都进行了 URL 转码。大多数常用框架如jquery的ajax请求方式就是这种方式。
 
-###application/json
+### application/json
 
 这种方式用来告诉服务端消息主体是序列化后的 JSON 字符串。
 
@@ -64,25 +64,25 @@ Status Code:200 OK`，数据发送出去了啊，发送之前打印一遍也是�
 	
 angularJs的Ajax默认就是这种方式。这种方式php 就无法通过 $_POST 对象从上面的请求中获得内容。
 
-###multipart/form-data
+### multipart/form-data
 
 我们使用表单上传文件、图片时，会设定让form 的 `enctyped=multipart/form-data`，其实就是声明用这种方式提交数据。
 
-###text/xml
+### text/xml
 
 它是一种使用 HTTP 作为传输协议，XML 作为编码方式的远程调用规范。常用作搜索引擎的 ping 服务，不过个人认为格式比较繁琐，没用过。
 
 
-##php接收以application/json方式post的数据
+## php接收以application/json方式post的数据
 
-###从 php://input 里获得原始输入流再 json_decode 成对象
+### 从 php://input 里获得原始输入流再 json_decode 成对象
 
 	<?
 		$postdata = file_get_contents("php://input");
 		$request = json_decode($postdata);
 	?>
 	
-###声明header
+### 声明header
 
 	<?
 		header('Content-Type: application/json');

@@ -12,7 +12,7 @@ angulajs入门，用的是O'REILLY的《AngularJs》一书，这是一本好书�
 ![image](https://echizen.github.io/assets/blog-img/QQ20141204-1.png)
 
 
-##1. page6
+## 1. page6
 原：
 
 {% raw %}
@@ -70,7 +70,7 @@ angulajs入门，用的是O'REILLY的《AngularJs》一书，这是一本好书�
 原因：新的版本要求必须用`angular.module('appname', []);`这种形式初始化自己定义的`ng-app='appname'`，如果你直接写'ng-app'而不去初始化自己的名字，则不用加这句。不过在单文本模式下，显然我们可能会一个页面多个作用域，也就是多个ng-app,不定义名称，显然不是好的做法。
 
 
-##2. page23
+## 2. page23
 原:
 
 			function DeathrayMenuController($scope){
@@ -93,7 +93,7 @@ angulajs入门，用的是O'REILLY的《AngularJs》一书，这是一本好书�
 
 原因：典型的未定义就使用。
 
-##3. page30
+## 3. page30
 原：
 
 	$scope.subtotal = function(){

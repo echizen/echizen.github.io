@@ -13,7 +13,7 @@ tags: [css3,基础]
 
 简单的内容，直接上代码
 
-###CSS
+### CSS
 
 	.checkbox {
 	    height: 28px;
@@ -92,7 +92,7 @@ tags: [css3,基础]
 	  background-image: linear-gradient(to bottom, #c2c0be 0%, #d7d7d7 72%);
 	}
 
-###html
+### html
 
 	<section class="col-xs-12 top_line">
 	    <div class="mul_col title_icon">
@@ -108,7 +108,7 @@ tags: [css3,基础]
 	    </div>
 	</section>
 	
-###分析
+### 分析
 没有用js,全是css `:checked`选择器的功劳。
 将input的checkbox框设置成圆，在利用label扩大其作用的点击范围（话说label真是一个对表单项有特殊要求样式的一个很实用的标签），将label的样式设置成椭圆。为`:checked`样式设置不同的背景色。
 

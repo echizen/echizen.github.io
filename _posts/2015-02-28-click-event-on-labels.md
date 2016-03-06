@@ -24,13 +24,13 @@ js中是这么写的：
 	
 视觉感受是click事件无效了，因为`.wait_check`的class没有变化，`item.ischecked`的值也没有变化。分布调试后，发现其实是执行了2次checkGoods()，也就是`ng-click`事件被执行了2次。
 
-##元素默认绑定click事件
+## 元素默认绑定click事件
 
 一些元素如`<a>、<button>、<input type="checkbox">`本生就默认绑定了click事件，即使你不绑定，click事件发生时他们也会接收到。
 
 当label标签包含input时，label也自动监听原来input默认监听的事件。
 
-##事件冒泡
+## 事件冒泡
 
 我们知道事件传递方式有2种：事件捕获和事件冒泡。事件会从父元素传到子元素，再从子元素传到父元素，如果事件绑定发生在父元素传到子元素的过程中，则称为事件捕获传递，如果事件绑定发生在子元素传到父元素的阶段，则称为事件冒泡传递。
 
@@ -52,7 +52,7 @@ js中是这么写的：
     
 当我们点击了`#child`后，会发现`callChildEvt()`先执行，随后`callParentEvt()`也执行了。其实这就是事件冒泡，传递给了`#parent`。
 
-##lable control
+## lable control
 
 label标签的功能不用多说，它把所包含的input的用户交互区域扩展了.**注意的是label和所包含的input都开始绑定默认事件，此时会发生事件冒泡现象**。
 
@@ -122,13 +122,13 @@ label标签的功能不用多说，它把所包含的input的用户交互区域�
 
 **注意的是，无论我们有没有人为的给label绑定click事件，其实你点击label后，其上的click事件处理函数都会发生2遍。我们绑定的处理函数和浏览器默认绑定事件的处理函数是同时进行的。所以label被触发的2次click事件并不是由于默认的和我们绑定的**
 
-##关于本例ng-click的分析
+## 关于本例ng-click的分析
 
 在本例中，点击label区域后，click事件执行一次，触发一次checkGoods()，由于checkbox本身默认也有click事件监听器，所以checkbox又触发一次click，并且将事件冒泡传递给了label，checkGoods()再次被触发。
 
-##解决方案。
+## 解决方案。
 
-###在label内部元素上绑定ng-click
+### 在label内部元素上绑定ng-click
 
 将ng-click绑定到input上，便只会触发一次。
 
@@ -137,6 +137,6 @@ label标签的功能不用多说，它把所包含的input的用户交互区域�
 	    <input type="checkbox" name="isChosed[]" class="isChose_checkbox" value="{{item.cartId}},{{item.nub}}" ng-click="checkGoods($index)" />
 	</label>
 	
-###阻止事件冒泡。
+### 阻止事件冒泡。
 虽然不符合我示例一的功能要求，但是如果你仅仅是想阻止label执行2遍事件，可以在子元素input上阻止事件冒泡，` e.stopPropagation()`,很多情况下避免冒泡都是这样做。但是对于label和input组合这么做伤害了初衷，这样点击input后，对于label来说是无效的，点击input不会触发label的click事件了，不符合常识，有一种子元素在该事件上不属于父元素的感觉，这个是要注意的。
 

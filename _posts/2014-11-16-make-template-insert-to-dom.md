@@ -6,10 +6,10 @@ category: tech
 tags: [前端, js, html, 数据交互, 进阶, tutorial]
 ---
 {% include JB/setup %}
-#应用场景
+# 应用场景
 前端经常在如ajax交互中将后台数据动态更新插入到dom中，而且插入的部分多是循环元素，只是数据不同，如做留言板是，每个评论者评论后评论模块的更新。
 
-#函数
+# 函数
 -  html():可以获取一段html文档（注意不是副本），但不是dom元素，不能用针对dom元素的函数如find()对其进行操作。
 -  clone():拷贝一段dom节点的副本，可以用对dom操作的函数对其进行操作，如parent().
 -  replace(reg,content):正则替换,将reg正则表达式匹配的内容用content元素替换。
@@ -17,13 +17,13 @@ tags: [前端, js, html, 数据交互, 进阶, tutorial]
 **注**：用html()还是clone()就看你对模板的操作需求，如果你只是对每个模板替换掉动态显示的数据部分，用html就够了，如果你还要为每个模板操作一些特别的dom部分，如添加一段html或更改一段html部分，建议用clone()函数。
 
 
-#思路
+# 思路
 
 将要重复性插入的dom元素制成模板，在页面中`display:none`后，用`html()`或`clone()`函数拷贝一份，然后用replace函数将动态数据部分进行替换。在`append()`或`prepend()`或`after()`或`before()`等等插入到页面中。
 
-#示例
+# 示例
 
-##1.弄清需求
+## 1.弄清需求
 	<div class="col-xs-12 formItem_wrap" >
         <h4>
             <span class="glyphicon glyphicon-plus" style="color:#fca837"></span>
@@ -45,7 +45,7 @@ tags: [前端, js, html, 数据交互, 进阶, tutorial]
         
  只是每个循环体的`data-elementType`、`data-type`、`data-fieldname`以及文字描述都不一样。
  
-##2. 制作模板
+## 2. 制作模板
  
     <div id="form_list_template" style="display:none">
          <div class="col-xs-3 " data-elementType={$elementType} data-type="1">
@@ -53,7 +53,7 @@ tags: [前端, js, html, 数据交互, 进阶, tutorial]
          </div>
     </div>
     
-##3.操作模板
+## 3.操作模板
 
 	//要替换模板内容的json数组
 	var fixedFields = [

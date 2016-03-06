@@ -76,7 +76,7 @@ tags: [css, basic]
 	貌似是flex目前还不支持这个。一般解决方案都是曲线救国，在flex的元素里放上子元素，给子元素`block`或`inline-block`的display。
 	
 	  
-###黄金资料
+### 黄金资料
 
 别人整理的bug合集：[https://github.com/philipwalton/flexbugs](https://github.com/philipwalton/flexbugs)
 

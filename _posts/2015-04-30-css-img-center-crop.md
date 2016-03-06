@@ -11,7 +11,7 @@ tags: [css, basic]
 
 通常我们会借助第三方插件裁剪，这时是真的将图片裁剪了才存储的。而css的“裁剪”只是展示时的选择性区域处理，并没有真正的裁剪原图片。
 
-##背景图片展示
+## 背景图片展示
 
 CSS
 
@@ -38,7 +38,7 @@ html
 [http://jsfiddle.net/echizen/0oer38w8/2/](http://jsfiddle.net/echizen/0oer38w8/2/)
 
 
-##图片展示
+## 图片展示
 
 这个有缺陷，你得先知道你的图片是横屏还是竖屏模型（width>height还是width<height）。2种情况分别使用不同的样式，我还没有研究一种样式解决所有情况的。
 

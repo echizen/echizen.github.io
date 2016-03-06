@@ -17,7 +17,7 @@ promise已被纳入ES6中，不过浏览器对其的支持性还不是特别好�
 
 jquery、commonjs、dojo、Q、when 都实现了自己的promise部分。名称略有不同，有叫promise的，有叫q的，有叫deffer的。但大体用法是一样的。他们都遵从了同一套规范 `Promises/A+`，但是jquery有点特殊。
 
-##应用方式
+## 应用方式
 
 先来假设一个应用场景：函数b需要在函数a执行完后执行。而函数a中有异步请求，譬如ajax,我们需要异步请求完成后根据异步请求成功或者失败来确定函数b执行内容。
 
@@ -46,11 +46,11 @@ b函数：
 	  })
 	}
 	
-##angularjs中的promise
+## angularjs中的promise
 
 angularjs 中的promise使用的是$q服务，只是换了个名字，本质还是一样的。特别的是他还有notify方法，用来在异步运行途中，不停的告诉对方我还在运行中。
 
-###使用方法
+### 使用方法
 
 a函数：
 
@@ -83,7 +83,7 @@ b函数：
 
 angular对promise的调用方式相对更清晰。
 
-###我的运用
+### 我的运用
 
 测试时测出了我之前写的发送验证码的bug，就是验证码请求失败，提示错误时，我依然在倒计时。。。。然后我将返回值移至异步回调中，然后就永远不会倒计时了。。。
 
@@ -159,7 +159,7 @@ controller中：
       return deferred.promise;
     };
     
-##promise的优点
+## promise的优点
 
 如果你认真看，会发现promise能实现的回调函数都能实现，所以为什么还要引入promise?
 
@@ -169,7 +169,7 @@ controller中：
 
 + promise解耦关系变得可能。这是我最大的感悟。如果用回调，上面的示例，是需要在a函数中植入成功或失败的回调函数，代码变得臃肿，而且维护时你必须对照着b函数看a函数中执行的回调函数是什么用处。而promise给出了通用的接口resolve和reject，a、b2个函数可以真正的分开，也方便a函数的复用。而且你无法想象在directive和controller这2个解耦的组件中（连通信都借用scope）使用回调这种紧密关联的东西是一件多么糟糕的事情。
 
-##示例代码（来自MDN）
+## 示例代码（来自MDN）
 
 	'use strict';
 	
@@ -276,7 +276,7 @@ controller中：
 	  .then(callback.success)
 	  .then(undefined, callback.error);
 	  
-##黄金外链
+## 黄金外链
 
 [https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 

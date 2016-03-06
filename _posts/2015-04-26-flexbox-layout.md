@@ -7,7 +7,7 @@ tags: [basic, css]
 ---
 {% include JB/setup %}
 
-##兼容性
+## 兼容性
 
 用framework7的时候学习了flex布局：
 
@@ -25,7 +25,7 @@ box布局是flex布局的前身，为了兼容性，一般写成上面的格式�
 ![image](https://echizen.github.io/assets/blog-img/QQ20150426-1@2x.png)
 
 
-##使用场景
+## 使用场景
 
 flex是为了更加灵活的布局。flex容器里的元素分配的是相对空间。
 
@@ -38,7 +38,7 @@ flex是为了更加灵活的布局。flex容器里的元素分配的是相对空
 6. 不确定大小的元素垂直居中变得可行。
 
 
-##属性
+## 属性
 
 flex 布局涉及到2方面，父容器（container）和子元素(item)，配合使用才能完成flex布局。(以下图片来源于网络，非原创)
 
@@ -98,7 +98,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 + **space-between**: 多行平均分布，第一行与容器上边界对其，最后一行与容器下边界对其，行于行之间留相同的空隙
 + **space-around**: 多行平均分布，但是上下边界与元素之间也留等高的空隙。
 
-###5. flex-direction：布局方向
+### 5. flex-direction：布局方向
 
 	.container {
 	  	flex-direction: row | row-reverse | column | column-reverse;
@@ -106,7 +106,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 	
 ![image](https://echizen.github.io/assets/blog-img/QQ20150426-2@2x.png)
 	
-###6. flex-wrap：子元素换行方式
+### 6. flex-wrap：子元素换行方式
 
 	.container{
 	  flex-wrap: nowrap | wrap | wrap-reverse;
@@ -117,7 +117,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 + wrap-reverse: 多行，从右向左排列 / right to left in ltr; left to right in rtl	
 ![image](https://echizen.github.io/assets/blog-img/QQ20150426-3@2x.png)
 
-###7. flex-flow :flex-direction 和flex-wrap的简洁写法
+### 7. flex-flow :flex-direction 和flex-wrap的简洁写法
 
 	flex-flow: <‘flex-direction’> || <‘flex-wrap’>
 	
@@ -125,7 +125,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
 	
 ==============================
 	
-###item属性
+### item属性
 
 ### 1. order：元素排列顺序
 
@@ -204,7 +204,7 @@ flex 布局涉及到2方面，父容器（container）和子元素(item)，配�
  --------------------------
  
  
-##黄金参考资料
+## 黄金参考资料
 
 [https://css-tricks.com/snippets/css/a-guide-to-flexbox/](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 

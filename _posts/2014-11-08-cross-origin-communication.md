@@ -6,10 +6,10 @@ category: tech
 tags: [html5, 前端, 进阶]
 ---
 {% include JB/setup %}
-#跨域通信
+# 跨域通信
 网上关于跨域通信的例子不少，方法也很多，强烈建议用html5 的communication API。
 
-##原由：同源策略
+## 原由：同源策略
 浏览器为了web安全，制定了同源策略，主要针对以下情况的网页之间不能通信。
 
 + 不同域名
@@ -18,15 +18,15 @@ tags: [html5, 前端, 进阶]
 
 + 不同协议
 
-##可以跨域的元素
+## 可以跨域的元素
    在浏览器中，`<script>`、`<img>`、`<iframe>`和`<link>`这几个标签是可以加载跨域（非同源）的资源的，并且加载的方式其实相当于一次普通的GET请求，唯一不同的是，为了安全起见，浏览器不允许这种方式下对加载到的资源的读写操作，而只能使用标签本身应当具备的能力（比如脚本执行、样式应用等等）。
 
-##html5 跨域：postMessage
+## html5 跨域：postMessage
 
 这是一套新规范，从我个人使用角度而言，推荐他的原因是，他简洁、安全、可即时通信。
 常用他来进行iframe父子页面的通信。
 
-###示例:www.child.com要向www.parent.com传输信息。
+### 示例:www.child.com要向www.parent.com传输信息。
 
 其中www.child.com是www.parent.com中嵌套的iframe子页面的源.
 
@@ -62,7 +62,7 @@ tags: [html5, 前端, 进阶]
     
    类似也可以由父页面向子页面发送数据。是不是很简洁。
    
-###postMessage API
+### postMessage API
 
 1. 发送消息：postMessage(data,goal_origin)
 	example:`Window.postMessage("hello","https://www.a.com")`
@@ -76,7 +76,7 @@ tags: [html5, 前端, 进阶]
    第三个参数是定义事件传递顺序了，true使用capture，是由父元素逐步传递到子元素，false使用bubbling，从子元素逐步传递到父元素，就是常说的冒泡。
 
 
-##网传其他跨域方式
+## 网传其他跨域方式
 
 1. **服务器端代理**，缺点在于，默认情况下接收Ajax请求的服务端是无法获取到的客户端的IP和UA的。
 

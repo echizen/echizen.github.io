@@ -9,11 +9,11 @@ tags: [basic,tool]
 
 乘热打铁，今天把less也看了。
 
-##安装
+## 安装
 
 	npm install -g less
 	
-##运行
+## 运行
 
 	lessc less/style.less > css/style.css
 	
@@ -30,7 +30,7 @@ tags: [basic,tool]
 	<link rel="stylesheet/less" type="text/css" href="styles.less" />
 	<script src="less.js" type="text/javascript"></script>
 	
-##安装sublime less插件
+## 安装sublime less插件
 
 shift+cmd+p -> install package -> less
 
@@ -50,6 +50,6 @@ css不压缩还是不能接受的。
 
 	lessc less/style.less > css/style.css --clean-css
 	
-##实时编译
+## 实时编译
 
 less的实时编译需要借助其他工具，如gulp的watch模块，koala...
