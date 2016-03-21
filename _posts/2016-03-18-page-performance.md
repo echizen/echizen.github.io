@@ -250,7 +250,7 @@ css属性中能够直接使用第三种类型渲染模式的只有`opacity`和 `
 
 但是，如果你对这个被触摸的元素绑定了输入事件处理函数，比如touchstart、touchmove或者touchend，那么渲染层合并线程必须等待这些被绑定的处理函数执行完毕之后才能被执行。因为你可能在这些处理函数中调用了类似preventDefault()的函数，这将会阻止输入事件（touch/scroll等）的默认处理函数的运行。事实上，即便你没有在事件处理函数中调用preventDefault()，渲染层合并线程也依然会等待，也就是用户的滚动页面操作被阻塞了，表现出的行为就是滚动出现延迟或者卡顿（帧丢失）。
 
-![image](https://echizen.github.io/assets/blog-img/ontouchmove.png)
+![image](https://echizen.github.io/assets/blog-img/ontouchmove.jpg)
 
 所以基于这种机制，你必须确保对用户输入事件绑定的任何处理函数都能够快速执行完毕，以便腾出时间来让渲染层合并线程来完成它的工作。
 

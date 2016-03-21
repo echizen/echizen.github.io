@@ -197,7 +197,7 @@ EST键调起console面板，点击面板左侧竖的"..."选出展示rendering�
 
 截了张rendering的图，可以看出帧数饱和频率很高，持续在60fps，导致动画会有卡顿。『点击换新装』按钮独自占据着一个渲染层。
 
-![image](https://echizen.github.io/assets/blog-img/20160320-11.png)
+![image](https://echizen.github.io/assets/blog-img/20160321-11.png)
 
 也截了张页面加载时timeline的图，1000ms-1800ms之间，CPU陡增后居高不下，1800ms之后fps稳定在一个很高的值，这都是性能不太好的表现。
 

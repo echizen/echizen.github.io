@@ -52,27 +52,27 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 
 /* line 49, ../_sass/_base.scss */
 h1, h2 {
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 10px;
 }
 
 h3,h4{
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 10px;
 }
 
 /* line 53, ../_sass/_base.scss */
 h1 {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 /* line 57, ../_sass/_base.scss */
 h2 {
-  font-size: 25px;
+  font-size: 18px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 p{

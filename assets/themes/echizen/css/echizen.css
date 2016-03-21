@@ -109,8 +109,12 @@ html,body{
 body{
     /*font-family: 'YouYuan','KaiTi','SimHei';*/
     color: #bbb;
-    font-size: 18px;
+    font-size: 14px;
     
+}
+
+p{
+  margin-bottom: 15px;
 }
 
 .tag-nav{
