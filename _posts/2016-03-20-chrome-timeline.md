@@ -195,7 +195,7 @@ EST键调起console面板，点击面板左侧竖的"..."选出展示rendering�
 
 ![image](https://echizen.github.io/assets/blog-img/20160320-9.png)
 
-截了张rendering的图，可以看出帧数饱和频率很高，持续在60fps，导致动画会有卡顿。『点击换新装』按钮独自占据着一个渲染层。
+截了张rendering的图，可以看出帧数饱和频率很高，持续在60fps，导致动画会有卡顿【解释错误！！！频率越高动画越流畅，啪啪啪，打脸】。『点击换新装』按钮独自占据着一个渲染层。
 
 ![image](https://echizen.github.io/assets/blog-img/20160321-11.png)
 
@@ -203,7 +203,7 @@ EST键调起console面板，点击面板左侧竖的"..."选出展示rendering�
 
 ![image](https://echizen.github.io/assets/blog-img/20160320-10.png)
 
-当我们把按钮动画效果除去，把所有`transform`中的`rotateZ`转换为`rotate`以避免创建新的渲染层，之后，fps下降了很多，也没有再出现crash。（但是我并没有发现CPU和GPU下降，不知道怎么解释）。最终解决方案就是针对版本降级动画方案。
+当我们把按钮动画效果除去，把所有`transform`中的`rotateZ`转换为`rotate`以避免创建新的渲染层，之后，fps下降了很多【这并不表示性能好了，再次打脸！】，也没有再出现crash。（但是我并没有发现CPU和GPU下降，不知道怎么解释）。最终解决方案就是针对版本降级动画方案。
 
 # something else
 
