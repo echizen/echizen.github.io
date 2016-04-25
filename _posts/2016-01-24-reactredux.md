@@ -57,3 +57,8 @@ tags: [react,redux]
 		+ 对象：`newObj = Object.assign({},this.state.data)`;
 		
 	- 对于redux管理的state，可以在reducer中处理函数里先建一个nextState，在nextState里操作。`let nextState = Object.assign({},this.state)`，在对nextState进行任意想要的操作。
+	即使是slice和Object.assign只能将顶层的深拷贝，也就是在内存中分配新的地址，如果所操作的对象的子元素还有复杂类型，这个子元素的指针仍指向之前的引用，改变他们仍然会改变原state。如下：
+	
+	![image](https://echizen.github.io/assets/blog-img/leef-copy.png)
+	
+	所以小心谨慎的保证slice和Object.assign用在最底层数组或对象上。如果功力不深或者觉得麻烦，还是用第三方库如[immutable-js](https://github.com/facebook/immutable-js/)
