@@ -49,6 +49,183 @@ tags: [js]
 
 可能扁平化的结构看上去不是一目了然的知道数据之间的关系（其实习惯了也很自然）），但是操作一下深有感触会方便很多。
 
+## 适用场景
+
+如果数据结构很简单，没必要设计成扁平化的。
+
+扁平化的数据适用于原数据层级嵌套很深的情况，2层以上会有很大便利。且你所要操作的数据不仅在第一层，更多的增查改删发生在更深的层级。
+
+## 对比
+
+为了简便，我这里对比一个2层的列子：
+
+### 嵌套式数据的增查改删：
+
+	var book = [{
+	  id: 1,
+	  title: 'first day',
+	  author: [{
+	    id: 6,
+	    name: 'kelly'
+	  },{
+	    id: 7,
+	    name: 'cindy'
+	  }]
+	},{
+		id: 2,
+	  title: 'grass',
+	  author: [{
+	    id: 8,
+	    name: 'blue'
+	  },{
+	    id: 5,
+	    name: 'yellow'
+	  }]
+	}];
+	
+	// 增
+	var getDdata = {
+	    id: 3,
+	    title: 'third aticle',
+	    author: [{
+	      id: 9,
+	      name: 'Dan'
+	    },{
+	      id: 10,
+	      name: 'buffer'
+	    }],
+	};
+	
+	book.push(getDdata);
+	
+	//查：get article which author id=8 all info
+	var queryAuId = 8;
+	var queryResult = book.find(function(item) {
+	  var isQuery = false;
+	  item.author.map(function(author){
+	    if(author.id === queryAuId){
+	      isQuery = true;
+	    }
+	  })
+	  if(isQuery){
+	    return item;
+	  }
+	})
+	
+	// 改：modify article which author id=8 from title 'grass' to 'sky'
+	var modifyAuId = 8;
+	book.map(function(item) {
+	  var isQuery = false;
+	  item.author.find(function(author){
+	    if(author.id === modifyAuId){
+	      isQuery = true;
+	    }
+	  })
+	  if(isQuery){
+	    item.title = 'sky';
+	  }
+	})
+	
+	// 删：delete article which author id = 7
+	var deleteAuId = 7;
+	var deleteIndex;
+	book.map(function(item,index) {
+	  var isQuery = false;
+	  item.author.map(function(author){
+	    if(author.id === deleteAuId){
+	      isQuery = true;
+	    }
+	  })
+	  if(isQuery){
+	    deleteIndex = index;
+	  }
+	})
+	
+	book.splice(deleteIndex,1);
+	
+嵌套式数据的操作基本依赖于循环map查找，有几层一般就得套几层map。
+
+### 扁平化数据的增查改删：
+
+	var book = {
+		articles: {
+		  1: { 
+		  		title: 'first day'
+		  	 }, // <--- Same happens for references to other entities in the schema
+		  2: { 
+		  		title: 'grass'
+		  },
+		},
+		authors: {
+			5: {
+	    	article: 2,
+	    	name: 'yellow'
+	  	},
+			6: {
+		    article: 1,
+		    name: 'kelly'
+		  },
+		  7: {
+		  	article: 1,
+		  	name:'cindy'
+		  },
+		  8: {
+		  	article: 2,
+		  	name:'blue'
+		  }
+		}
+	}
+	
+	// 增
+	var getData = {
+	    id: 3,
+	    title: 'third article',
+	    author: [{
+	      id: 9,
+	      name: 'Dan'
+	    },{
+	      id: 10,
+	      name: 'buffer'
+	    }],
+	};
+	
+	book.articles[getData.id]={
+		title: getData.title
+	};
+	
+	getData.author.map(function(item) {
+		book.authors[item.id] = {
+			article: getData.id,
+			name: item.name
+		}
+	})
+	
+	//查：get article which author id=8  info
+	var queryAuId = 8;
+	var resAuthor = book.authors[queryAuId];
+	var resArticle = book.articles[resAuthor.article];
+	var queryResult = {
+		title: resArticle.title,
+		author: [{
+			id: queryAuId,
+			name: resAuthor.name
+		}] 
+	}
+	
+	// 改：modify article which author id=8 from title 'grass' to 'sky'
+	var modifyAuId = 8;
+	book.articles[book.authors[modifyAuId].article].title = 'sky';
+	
+	// 删：delete article which author id = 7
+	var deleteAuId = 7;
+	var toDeleteAuthor = book.authors[deleteAuId];
+	delete book.articles[toDeleteAuthor.article];
+	delete book.authors[deleteAuId];
+
+扁平化数据操作复杂度与层级没有必然联系，2层和n层复杂度相同。
+
+可能这个2层数据的例子中扁平化的优势还不是很明显，这就是个抛砖引玉的例子，你可以假设一下他是3层根据例子的情景在脑海中过一下增查改删操作，会发现嵌套式循环都多加一层，扁平化方式无变动，优势立即体现出来了。
+
 ## 实例场景-一个多级联动select
 
 下面通过我上周遇到的一个多级联动的select，比较一下2种设计。（为了方便我直接搬运过来了就不抽象了）
