@@ -51,7 +51,7 @@ devServer.historyApiFallback的意思是当路径匹配的文件不存在时不�
 
 这样开启webpack-dev-server后会看到终端：
 
-![image](https://echizen.github.io/assets/blog-img/20160704.png)
+![image](https://echizen.github.io/assets/blog-img/20160705.png)
 
 ps:我就是修改配置项看终端信息才知道这2个参数是这个意思，坑爹的官网解释就是个坑，遇到问题已经不能只靠官网和stackoverflow了，还是多自己研究原理和现象吧。
 
