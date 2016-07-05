@@ -87,3 +87,5 @@ ps:我就是修改配置项看终端信息才知道这2个参数是这个意思�
 		  // webpack-dev-server options
 		
 		});
+		
+不行，我要去stackoverflow答一波题了，不然这么个问题查半天都查不到答案真是捉急。。。
