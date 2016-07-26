@@ -139,7 +139,7 @@ is函数只是做简单的`===`判断，又指判断了2个需要比较对象的
 
 但是注意的是`Object.assign`和`concat`方法只是对当前操作对象进行深拷贝，如果当前操作的是一个复杂对象，并不会自动对他的子属性都做深层拷贝:
 
-![image](https://echizen.github.io/assets/img-blog/QQ20160726-0@2x.png)
+![image](https://echizen.github.io/assets/blog-img/QQ20160726-0@2x.png)
 
 这就尴尬了。导致如果我们如果想要做深拷贝就得一层层的手动`Object.assign`，这是非常不方便的，我们需要一个库来提高生产力。
 
