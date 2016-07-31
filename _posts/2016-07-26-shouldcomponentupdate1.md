@@ -184,11 +184,11 @@ is函数只是做简单的`===`判断，又指判断了2个需要比较对象的
 		name:'book',
 		content:{
 			section:[
-					{
-						title:'first'
-					},{
-						title:'second'
-					}
+				{
+					title:'first'
+				},{
+					title:'second'
+				}
 			],
 			page:200
 		}
@@ -223,11 +223,11 @@ c6.props = c3.props.section
 		name:'book',
 		content:{
 			section:[
-					{
-						title:'first'
-					},{
-						title:'second'
-					}
+				{
+					title:'first'
+				},{
+					title:'second'
+				}
 			],
 			page:200
 		}
