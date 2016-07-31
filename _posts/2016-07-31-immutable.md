@@ -184,3 +184,9 @@ Immutable与react、redux并没有完美融合，刚嵌入时你会看见无数�
 
 但是Immutable在标准化和性能方面都很有优势，并不能因为接口不友好就被放弃使用，只是建议在项目开始阶段就接入。
 
+# 黄金外链
+
+[https://github.com/facebook/immutable-js/](https://github.com/facebook/immutable-js/)
+
+[https://facebook.github.io/immutable-js/docs/#/](https://facebook.github.io/immutable-js/docs/#/)
+

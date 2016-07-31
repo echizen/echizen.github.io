@@ -110,3 +110,11 @@ npm2 采用严格树形嵌套的形式组织依赖模块的目录，而 npm3 则
 # 扁平化方案的吐槽
 
 这个听Node程序员吐槽过包被扁平化后，不方便调试和查找了。而且为了避免同一资源被多次下载，其实可以通过软链接的方式，而不必要改变原本的包结构。
+
+# 黄金外链
+
+[https://docs.npmjs.com/how-npm-works/npm3](https://docs.npmjs.com/how-npm-works/npm3)
+
+[https://docs.npmjs.com/how-npm-works/npm3-dupe](https://docs.npmjs.com/how-npm-works/npm3-dupe)
+
+[https://docs.npmjs.com/cli/dedupe](https://docs.npmjs.com/cli/dedupe)
