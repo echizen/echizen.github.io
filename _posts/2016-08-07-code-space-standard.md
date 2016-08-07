@@ -69,7 +69,7 @@ tags: []
 		.selector {
 		}
 	
-属性名 后的 `:` 与 属性值 之间。`margin: 0;`
+- 属性名 后的 `:` 与 属性值 之间。`margin: 0;`
 
 - 列表型属性值 书写在单行时，`,` 后。`font-family: Arial, sans-serif;`
 
