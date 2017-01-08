@@ -55,6 +55,37 @@ devServer.historyApiFallback的意思是当路径匹配的文件不存在时不�
 
 ps:我就是修改配置项看终端信息才知道这2个参数是这个意思，坑爹的官网解释就是个坑，遇到问题已经不能只靠官网和stackoverflow了，还是多自己研究原理和现象吧。
 
+### 同一个项目配置多个单页面系统入口
+
+我有需求要在同一个项目中开启2套单页面体系，一套是给用户用的平台，一套是给管理员用的管理后台。并不想每次启动2个服务器去开发，所以需要搞定一套webpack配置，能运行2个入口：
+
+	module.exports = {
+	    entry: {
+	        "main": "./src/app/index.js",
+	        "admin": "./src/admin/index.js"
+	    },
+	    output: {
+	        path: path.resolve(__dirname, 'build'),
+	        publicPath: 'build',
+	        filename: 'bundle-[name].js'
+	    },
+	    devServer: {
+	        historyApiFallback:{
+          index:'build/index.html',
+          rewrites: [
+              { from: /^\/admin/, to: 'build/admin.html' }
+          ],
+        },
+	    },
+	    //其他的配置省略
+	};
+
+这个配置entry配置了2个入口。
+
+output配置生成了2个文件，[name]是定义的entry的键名.
+
+historyApiFallback中的配置依旧是404页面导入到`build/index.html`这个用户系统的主入口，但是rewrites配置了重定向规则，from指定如果路径能匹配`/^\/admin/`，则指向`build/admin.html`入口html文件。
+
 ### 坑爹的官网
 
 [http://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option](http://webpack.github.io/docs/webpack-dev-server.html#the-historyapifallback-option)
