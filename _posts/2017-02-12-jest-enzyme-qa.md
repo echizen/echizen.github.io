@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "使用jest+enzyme进行react项目测试 - 疑难杂症篇"
-description: "解决在webpack的resolve.alias中配置的内容jest找不到：ReferenceError: React is not defined。jest测试代码的调试。enzyme simulate input change。jest mock fetch 和 jsonp。jest 存储html格式的Snapshot。enzyme获取非root的state。enzyme simulate antd checkbox change。enzyme simulate 清除antd 的timePicker选择器值。jest 对于动态插入的script标签引入的文件处理
+description: "解决在webpack的resolve.alias中配置的内容jest找不到：ReferenceError: React is not defined。jest测试代码的调试。enzyme simulate input change。jest mock fetch 和 jsonp。jest 存储html格式的Snapshot。enzyme获取非root的state。enzyme simulate antd checkbox change。enzyme simulate 清除antd 的timePicker选择器值。jest 对于动态插入的script标签引入的文件处理"
 category: tech
 tags: [测试, react]
 ---
