@@ -30,12 +30,15 @@ tags: [js]
     }
     
 - chrome
+
     ![http://s2.mogucdn.com/p2/170312/114994688_3ah91hefjk43la5abl4979gg6bc9g_400x1008.png](http://s2.mogucdn.com/p2/170312/114994688_3ah91hefjk43la5abl4979gg6bc9g_400x1008.png)
 
 - safari
+
     ![http://s2.mogucdn.com/p2/170312/114994688_141ih5lj2hja279cgk7hhd0i4i116_388x1092.png](http://s2.mogucdn.com/p2/170312/114994688_141ih5lj2hja279cgk7hhd0i4i116_388x1092.png)
 
 - firefox
+
     ![http://s2.mogucdn.com/p2/170312/114994688_6akjbaej9g3bc33da6fledljha18l_1224x596.png](http://s2.mogucdn.com/p2/170312/114994688_6akjbaej9g3bc33da6fledljha18l_1224x596.png)
 
 - IE
@@ -45,6 +48,7 @@ tags: [js]
 ## 标准
 
 - 根据 ECMA-262（ECMAScript）第三版中描述，for-in 语句的属性遍历的顺序是**由对象定义时属性的书写顺序决定的**。[ECMA-262 3rd Edition](http://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%203rd%20edition,%20December%201999.pdf)【参考12.6.4 The for-in Statement。】
+
    ![http://s17.mogucdn.com/p1/170312/idid_ifqwkm3fmuytkyjzmuzdambqgyyde_1980x1392.png](http://s17.mogucdn.com/p1/170312/idid_ifqwkm3fmuytkyjzmuzdambqgyyde_1980x1392.png)
 
 - ECMA-262（ECMAScript）第五版规范中，对 for-in 语句的遍历机制又做了调整，**属性遍历的顺序是没有被规定的**。[ECMA-262 5rd Edition](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf)
