@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "react 项目中的css处理"
-description: ""
-category: 
-tags: []
+description: "react 项目中的css处理, css加载，style-loader作用，extract-text-webpack-plugin抽取css，css 模块化， css in js, css module, npm包组件里的css处理"
+category: tech
+tags: [react, css, 工程化]
 ---
 {% include JB/setup %}
 
