@@ -7,7 +7,6 @@ tags: [html, js]
 ---
 {% include JB/setup %}
 
-
 ## 背景
 
 - 组件化
@@ -26,7 +25,7 @@ tags: [html, js]
 
 [http://codepen.io/robdodson/pen/rCGvJ](http://codepen.io/robdodson/pen/rCGvJ)
 
-[./2017-04-08-web-components/old/slider.html](./2017-04-08-web-components/old/slider.html)
+[https://github.com/echizen/web-component-demo/blob/master/old/slider.html](https://github.com/echizen/web-component-demo/blob/master/old/slider.html)
 
 需要写html、css、js代码。
 
@@ -290,7 +289,9 @@ chrome 49开始已支持。
 
 完整demo：
 
-[./2017-04-08-web-components/new-web-components/index.html](./2017-04-08-web-components/new-web-components/index.html)
+[https://github.com/echizen/web-component-demo/blob/master/new-web-components/index.html](https://github.com/echizen/web-component-demo/blob/master/new-web-components/index.html)
+
+[https://github.com/echizen/web-component-demo/blob/master/new-web-components/slider-component.html](https://github.com/echizen/web-component-demo/blob/master/new-web-components/slider-component.html)
  
 ## 调用
 
