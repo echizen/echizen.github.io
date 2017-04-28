@@ -1,4 +1,11 @@
-##  使用jest+enzyme进行react项目测试 - debug篇
+---
+layout: post
+title: "使用jest+enzyme进行react项目测试 - debug篇"
+description: "jest debug;jest测试代码调试"
+category: tech
+tags: [jest]
+---
+{% include JB/setup %} 
 
 这套环境是node服务在跑，测试代码也会出bug，也需要完善的调试环境。
 
