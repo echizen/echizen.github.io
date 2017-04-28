@@ -1,12 +1,4 @@
----
-layout: post
-title: "使用jest+enzyme进行react项目测试 - debug篇"
-description: "jest debug, vscode jest debug, jest debug single file"
-category: tech
-tags: [jest, react]
----
-{% include JB/setup %}
-
+##  使用jest+enzyme进行react项目测试 - debug篇
 
 这套环境是node服务在跑，测试代码也会出bug，也需要完善的调试环境。
 
@@ -18,7 +10,7 @@ tags: [jest, react]
 
 ### 配置
 
-点击debugger的小虫子icon，进入debug模式后，项目根目录下的`.vscode`下会出现`launch.json`文件，这是debug的配置文件。
+点击debugger的小虫子icon，进入debug模式后，点击顶部调试后的配置icon，项目根目录下的`.vscode`下会出现`launch.json`文件，这是debug的配置文件。
 
 jest的配置内容如下：
 
@@ -53,7 +45,7 @@ jest的配置内容如下：
  - "program": "${workspaceRoot}/node_modules/jest-cli/bin/jest.js"。指定了入口文件，在这里就是jest的入口文件，平时通过终端运行jest也调用的是这个脚本。
  - "args": ["--runInBand"]。命令携带的参数，jest的特点是多进程并发运行不同测试案例，达到快速的效果。但是这样对调试来说是没法进行的。这个参数保证了使用一个进程运行所有代码。
  - "env": 指定了运行时的一些环境变量
- - "sourceMaps": 调试时，部分运行文件是压缩状态的，使用这个可以方便查看。但是我没开启也是可以的，大部分要设断点的都是未压缩状态的代码
+ - "sourceMaps": 调试时，因为被调试的文件时拼接后且通过babel转的，所以部分运行文件是压缩状态的，使用这个可以方便查看。但是我没开启也是可以的，大部分要设断点的都是未压缩状态的代码
 
 这些配置相当于运行脚本：`node --debug-brk=13671 --nolazy node_modules/jest-cli/bin/jest.js --runInBand`。 `--debug-brk=num`就是你设置的断点处，编辑器给你转成了脚本参数
 
@@ -69,3 +61,44 @@ jest的配置内容如下：
 
 之前一直带上了`--`符，哭晕。。。
 
+### jest vscode plugin
+
+![http://s2.mogucdn.com/mlcdn/c45406/170424_4kg05d62h3bhf3kfh5418a0dkfli4_1018x328.png](http://s2.mogucdn.com/mlcdn/c45406/170424_4kg05d62h3bhf3kfh5418a0dkfli4_1018x328.png)
+
+就是这货，这货有以下几个作用：
+
+- 能监听文件变更，可配置默认在保存时运营测试文件，这样你能及时便捷的查看到运行结果。
+
+- 高亮snapshot文件(.snap)。
+
+- jest语句关键词的自动补全
+
+- 语法错误的行内显示
+
+配置在vscode的`setting.json`中：
+
+    // Automatically starting Jest for this project.
+    "jest.autoEnable": true,
+
+    // The path to the Jest binary, or an npm command to run tests prefixed with `--` e.g. `npm test --`
+    "jest.pathToJest": "node_modules/.bin/jest",
+
+    // The path to your Jest configuration file
+    "jest.pathToConfig": "",
+    
+基本不用动。`jest.autoEnable`是是否在文件变更时自动运行测试文件。`jest.pathToJest`指向jest的入口文件。当我们在package.json中配置了jest时，`jest.pathToConfig`是不用填写的，插件会去读`package.json`中的jest配置。
+
+
+### 调试面板
+
+![http://s2.mogucdn.com/mlcdn/c45406/170424_3ib3b00eb8f48gbkb70be4cjajb8j_2438x1536.png](http://s2.mogucdn.com/mlcdn/c45406/170424_3ib3b00eb8f48gbkb70be4cjajb8j_2438x1536.png)
+
+左上方的绿色播放键是开始以调试模式运行脚本。
+
+左侧有变量区、监视区、函数调用堆栈、断点列表。
+
+中部文件上方悬浮的操作条有继续、单步跳过、单步调试、单步跳出、重启、停止等。
+
+文件中的断点光标右键可以编辑断点，设置条件断点。
+
+当然有一系列快捷键可以用，方便操作。

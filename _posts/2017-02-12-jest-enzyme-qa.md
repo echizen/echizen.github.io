@@ -73,9 +73,18 @@ tags: [测试, react]
 
 坑爹的nock 只能mock http(s).request, 不能mock fetch。被[http://cn.redux.js.org/docs/recipes/WritingTests.html](http://cn.redux.js.org/docs/recipes/WritingTests.html)带到沟里去了。
 
-我引用的第三方mock请求的组件是`fetch-mock`;
+我引用的第三方mock请求的组件是`fetch-mock`：[http://www.wheresrhys.co.uk/fetch-mock/](http://www.wheresrhys.co.uk/fetch-mock/)
 
-先封装个统一的mock方法：
+先按照自己请求规范标准，封装统一的mock方法，譬如我项目，所有的成功请求都是如下格式：
+
+    status:{
+        code: "0",
+        detail: "成功",
+        msg: "success"
+    },
+    result: res
+
+所以我封装了个如下的统一方法：
 
     const fetchMock = require('fetch-mock');
     import { HOST } from '../src/util/api.js';
