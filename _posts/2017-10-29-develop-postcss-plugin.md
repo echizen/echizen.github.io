@@ -100,3 +100,9 @@ postcss插件如同babel插件一样，有固定的格式
 #### 直接调用postcss命名空间下的方法
 
 可以用`postcss.parse`来处理一段css文本，拿到css ast，然后进行处理，再通过调用`toResult().css`拿到处理后的css输出
+
+### 示例
+
+写了个web页面的rem\px单位转成小程序wxss里的rpx单位的小插件示例：
+
+[https://github.com/echizen/postcss-unit2rpx/blob/master/index.js](https://github.com/echizen/postcss-unit2rpx/blob/master/index.js)
