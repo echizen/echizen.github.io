@@ -13,7 +13,7 @@ tags: [js, css, tool]
 
 ### css ast
 
-postCss会帮我们分析出css的抽象语法树，要想写插件去处理css，需要先了解一下它透出的css ast。
+postcss会帮我们分析出css的抽象语法树，要想写插件去处理css，需要先了解一下它透出的css ast。
 
 #### 类型
 
@@ -28,7 +28,7 @@ css ast主要有3种父类型
 - decl： 指的是每条具体的css规则
 - rule：作用于某个选择器上的css规则集合
 
-初次接触，可以去这里看看ast�树结构，会清晰不少：
+初次接触，可以去这里看看ast语法树结构，会清晰不少：
 
 [http://astexplorer.net/#/2uBU1BLuJ1](http://astexplorer.net/#/2uBU1BLuJ1)
 
@@ -93,9 +93,9 @@ postcss插件如同babel插件一样，有固定的格式
     
 注册个插件名，并获取插件配置参数opts
 
-返回值是个函数，这个函数主题是你的处理逻辑，有2个参数，一个是`root`，css ast的根节点。另一个是result，返回结果对象，譬如`result.css`，获得处理结果的css字符串，`result.message`包含组件里创建的warnings和自定义信息，`result.warn()`创造一个warning实例并将其加入到`result.message`中，`result.warnings()`获得所有创造过的warning。
+返回值是个函数，这个函数主体是你的处理逻辑，有2个参数，一个是`root`，css ast的根节点。另一个是result，返回结果对象，譬如`result.css`，获得处理结果的css字符串，`result.message`包含组件里创建的warnings和自定义信息，`result.warn()`创造一个warning实例并将其加入到`result.message`中，`result.warnings()`获得所有创建过的warning。
 
-注意组件的异常信息处理，不要直接`console`，因为一些 PostCSS 处理器会过滤掉`console`的输出导致异常信息丢失，用`node.warn`或者`node.error`创造`CssSyntaxError `实例，会自动带上源码中的位置信息帮助debug，加到异常信息队列里。
+注意组件的异常信息处理，不要直接`console`，因为一些 postcss 处理器会过滤掉`console`的输出导致异常信息丢失，用`node.warn`或者`node.error`创造`CssSyntaxError `实例，会自动带上源码中的位置信息帮助debug，加到异常信息队列里。
 
 #### 直接调用postcss命名空间下的方法
 
