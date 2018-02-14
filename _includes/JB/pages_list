@@ -29,9 +29,18 @@ Usage:
     {% if node.title != null %}
       {% if group == null or group == node.group %}
       	{% if page.url == node.url %}
-      	<li class="flex_item active"><a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a></li>
+				<div class="flex_item cate-item">
+      		<li class="active">
+						<a href="{{ BASE_PATH }}{{node.url}}" class="active">{{node.title}}</a>
+					</li>
+				</div>
       	{% else %}
-      	<li class="flex_item"><a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}</a></li>
+				<div class="flex_item cate-item">
+      		<li class="">
+						<a href="{{ BASE_PATH }}{{node.url}}">{{node.title}}
+						</a>
+					</li>
+				</div>
       	{% endif %}
       {% endif %}
     {% endif %}

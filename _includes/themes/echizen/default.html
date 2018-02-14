@@ -75,12 +75,14 @@
             {% assign group = 'navigation' %}
             {% include JB/pages_list %}
 
-            <li class="flex_item"><a href="/index">Index</a></li>
+            <div class="flex_item cate-item">
+                <li class=""><a href="/index">Index</a></li>
+            </div>
         </ul>
 
        
         {{ content }}
-        <footer>
+        <footer class="col-md-12">
             <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
             </p>
         </footer>

@@ -59,18 +59,10 @@ theme :
                 left: 0px;
                 right: 0px;
                 bottom: 0px;
-                background: url('{{ ASSET_PATH }}/img/cover.jpg') no-repeat;
-                background-size: 100%;
+                background: url('{{ ASSET_PATH }}/img/bg3.jpg') no-repeat;
+                background-size: cover;
                 background-position: 50%;
-            }
-
-            .nav li{
-                width: 130px;
-                height: 130px;
-                border-radius: 50%;
-                text-align: center;
-                box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.67);
-            }
+            }        
 
             .avatar-wrap{
                 width: 250px;
@@ -87,8 +79,8 @@ theme :
             }
 
             .name{
-                margin-top: 50px;
-                margin-bottom: 10px;
+                padding-top: 50px;
+                padding-bottom: 10px;
                 font-size: 30px;
                 font-weight: 700;
                 text-align: center;
@@ -99,65 +91,61 @@ theme :
                 background-color: rgba(255, 255, 255, 0.49);
             }*/
 
-            .category_wrap{
-                height: 180px;
-                padding-top: 20px;
-            }
-
             /*.nav{
                 width: 770px;
             }*/
 
             .nav li{
                 /*float: left;*/
-                margin-left: 12px;
-                margin-right: 12px;
-                margin-top: 10px;
-                margin-bottom: 10px;
-                display:inline-block
+                display:inline-block;
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%,-50%,0);
             }
 
             .nav li:before{
                 box-shadow: inset 0px 0px 50px 10px rgba(255,255,255,0.2);
             }
 
-            .nav li:nth-child(1){
+            .nav .cate-item:nth-child(1) li{
                 background-color: rgba(34, 34, 34, 0.89);/*#222222*/
             }
 
-            .nav li:nth-child(2){
+            .nav .cate-item:nth-child(2) li{
                 background-color: rgba(102, 255, 255, 0.79);/*#CCFFCC*/
             }
 
-            .nav li:nth-child(3){
+            .nav .cate-item:nth-child(3) li{
                 background-color: rgba(102, 204, 102, 0.8);/*#CCFFFF*/
             }
 
-            .nav li:nth-child(4){
+            .nav .cate-item:nth-child(4) li{
                 background-color: rgba(204, 204, 255, 0.87);/*#CCCCFF*/
             }
 
-            .nav li:nth-child(5){
+            .nav .cate-item:nth-child(5) li{
                 background-color: rgba(255, 204, 255, 0.82);/*#CCCCFF*/
             }
 
             .nav li a{
                 color: #fff;
-                height: 130px;
-                line-height: 130px;
                 padding: 0px;
                 font-size: 25px;
                 text-decoration: none;
                 display: block;
+                position: relative;
+                top: 50%;
+                transform: translate3d(0, -50%, 0);
             }
 
             @media (min-width: 960px) {
               .nav li:hover,.nav li:focus{
-                  margin-top: -2px;
+                  /* margin-top: -2px; */
                   height: 150px;
                   width: 150px;
-                  margin-left: 2px;
-                  margin-right: 2px;
+                  /* margin-left: 2px;
+                  margin-right: 2px; */
                   
                   -webkit-transition: all .3s ease;
                   -moz-transition: all .3s ease;
@@ -167,11 +155,7 @@ theme :
 
               .nav li:focus a,.nav li:hover a{
                   color: #FF9900;
-                  height: 150px;
-                  line-height: 150px;
-                  padding: 0px;
                   font-size: 30px;
-                  background-color: transparent;
                   -webkit-transition: all .3s ease;
                   -moz-transition: all .3s ease;
                   -o-transition: all .3s ease;
@@ -185,9 +169,12 @@ theme :
                 font-weight: 300;
                 color: #059D14;
                 text-align: center;
-                text-shadow: 4px 4px 2px #ccc;
+                text-shadow: 2px 2px 2px #ccc;
                 position: fixed;
                 bottom: 30px;
+                width: 100%;
+                text-align: center;
+                left: 0;                
             }
 
             /*平板适配*/
@@ -197,21 +184,25 @@ theme :
 
             /*手机适配*/
             @media (max-width: 480px) {
+              .cate-item {
+                  width: 110px;
+                  height: 110px;
+              }
               .archive-li{
                 display: none !important;
               }
-              .nav li{
+              .nav .cate-item li{
                 width: 100px;
                 height: 100px;
-              }
-              .nav li a{
-                  height: 100px;
-                  line-height: 100px;
               }
 
               .motto{
                 font-size: 20px;
-                text-align: center;
+              }
+
+              .avatar-wrap{
+                width: 130px;
+                height: 130px;
               }
 
               .index_pic img {
@@ -240,20 +231,22 @@ theme :
                     {% assign group = 'navigation' %}
                     {% include JB/pages_list %}
 
-                    <li class="flex_item archive-li">
-                        <a href="/e_archive.html">archive</a>
-                    </li>
+                    <div class="flex_item cate-item archive-li">
+                      <li class="">
+                          <a href="/e_archive.html">archive</a>
+                      </li>
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-12 index_pic">
                 <div class="avatar-wrap">
-                    <img class="img-rounded" src="{{ ASSET_PATH }}/img/avatar2.jpg">
+                    <img class="img-rounded" src="{{ ASSET_PATH }}/img/avatar3.jpg">
                 </div>
             </div>
 
-            <div class="col-md-12 motto">
-                让明天的自己,感谢今天的自己
+            <div class="motto">
+                心有猛虎 轻嗅蔷薇
             </div>
         </div>
     </body>

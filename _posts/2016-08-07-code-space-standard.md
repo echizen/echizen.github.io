@@ -96,7 +96,7 @@ tags: []
 
 shift+cmd+p -> 输入prettify -> 选择HTMLPretiffy:set prettify preference(或者preferences -> package setting -> HTML/CSS/JS prettify -> set Prettify perferences）,`.jsprettifyrc`里配置规则，默认规则是：
 	
-	  // Details: https://github.com/victorporof/Sublime-HTMLPrettify#using-your-own-jsbeautifyrc-options
+	  {%raw%}// Details: https://github.com/victorporof/Sublime-HTMLPrettify#using-your-own-jsbeautifyrc-options
 	  // Documentation: https://github.com/einars/js-beautify/
 	  "html": {
 	    "allowed_file_extensions": ["htm", "html", "xhtml", "shtml", "xml", "svg"],
@@ -151,7 +151,7 @@ shift+cmd+p -> 输入prettify -> 选择HTMLPretiffy:set prettify preference(或�
 	    "unescape_strings": false, // Should printable characters in strings encoded in \xNN notation be unescaped, "example" vs "\x65\x78\x61\x6d\x70\x6c\x65"
 	    "wrap_line_length": 0 // Lines should wrap at next opportunity after this number of characters (0 disables)
 	  }
-	}
+	}{%endraw%}
 
 
 ### 不足之处
