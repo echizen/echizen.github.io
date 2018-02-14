@@ -396,6 +396,7 @@ body{
 .flex .left_img,.flex .right_text{
     -webkit-flex-shrink: 0;
     -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
     flex-shrink: 0;
 }
 
