@@ -3,7 +3,7 @@ layout: post
 title: "部署单元测试环境需要做的思考"
 description: "部署单元测试环境需要做的思考"
 category: tech
-tags: []
+tags: [jest]
 ---
 {% include JB/setup %}
 
