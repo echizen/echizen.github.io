@@ -87,7 +87,7 @@ JB :
   # Set 'provider' to false to turn commenting off globally.
   #
   comments :
-    provider : disqus
+    provider : facebook
     disqus :
       short_name : echizen-z
     livefyre :
@@ -95,10 +95,10 @@ JB :
     intensedebate :
       account : 123abc
     facebook :
-      appid : 123
+      appid : 1031611993660963
       num_posts: 5
-      width: 580
-      colorscheme: light
+      width: 800
+      colorscheme: dark
    
   # Settings for analytics helper
   # Set 'provider' to the analytics provider you want to use.
