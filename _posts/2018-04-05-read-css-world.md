@@ -11,6 +11,18 @@ css在我心中一直是玄学，因此一直希望遇见一本可以系统的�
 
 非常认同，css玄在最终表现是多个属性共同作用的结果，这多个属性常上达几十个，所以单从某个属性角度很多时候无法理解其表现
 
+再说说本文会有点乱，夹杂各种知识点。不能从实用角度来看待，更多的是去理解原理，为啥会有这么多玄乎的表现。如果从实用角度，我们可能不会组合这些属性来诞生这些奇怪的表现，或者加些属性来消除影响。但是作为一个前端，我认为还是有必要理解为什么是这样的表现的。
+
+主要涉及点:
+
+- 行框盒子前的strut
+- 基线
+- line-height
+- vertical-align
+- font-size和文本高度
+- BFC
+- css层叠顺序
+
 # 内联
 
 相比于块级元素，内联元素出现的不少，但是属性表现经常不受重视，譬如我就发现很多现象之前没有认知到。
@@ -21,14 +33,14 @@ css在我心中一直是玄学，因此一直希望遇见一本可以系统的�
 
 ### 1.空元素高度不为0
 
-[https://codepen.io/anon/pen/ZxRWjd?editors=1100](https://codepen.io/anon/pen/ZxRWjd?editors=1100)
+[https://codepen.io/echizen/pen/eMxbwO?editors=1100](https://codepen.io/echizen/pen/eMxbwO?editors=1100)
 
 ![image](https://s10.mogucdn.com/mlcdn/c45406/180331_43hbfih4i05j7725f4be2c833f8ck_948x1130.png)
 
 
 ### 块状元素line-height设置的高度不是最终高度
 
-[https://codepen.io/anon/pen/NYzrmq](https://codepen.io/anon/pen/NYzrmq)
+[https://codepen.io/echizen/pen/XEOOJb?editors=1100](https://codepen.io/echizen/pen/XEOOJb?editors=1100)
 
 ```
 .box { line-height: 32px; }
@@ -132,11 +144,13 @@ css在我心中一直是玄学，因此一直希望遇见一本可以系统的�
 
 “内联元素”指“外在盒子”为`inline`的元素。
 
-## 内联元素影响区域尺寸的一些概念
+## 内联盒模型
 
 - 内容区域（content area）。内容区域指一种围绕文字看不见的盒子，其大小仅受字符本身特性控制，本质上是一个字符盒子（character box）；但是有些元素，如图片这样的替换元素，其内容显然不是文字，不存在字符盒子之类的，因此，对于这些元素，内容区域可以看成元素自身。我们可以把文本选中的背景色区域作为内容区域
 
 - 内联盒子（inline box）。“内联盒子”不会让内容成块显示，而是排成一行，这里的“内联盒子”实际指的就是元素的“外在盒子”，用来决定元素是内联还是块级。该盒子又可以细分为“内联盒子”和“匿名内联盒子”两类：　如果外部含内联标签（`<span>`、`<a>`和`<em>`等），则属于“内联盒子”；如果是个光秃秃的文字，则属于“匿名内联盒子”。需要注意的是，并不是所有光秃秃的文字都是“匿名内联盒子”，其还有可能是“匿名块级盒子”，关键要看前后的标签是内联还是块级。
+
+  ![image](https://s10.mogucdn.com/mlcdn/c45406/180410_1jll5lg1ic8llj5h8ib5d6c5j8fec_890x76.png)
 
 - 行框盒子（line box）。例如：
 
@@ -144,11 +158,15 @@ css在我心中一直是玄学，因此一直希望遇见一本可以系统的�
 
   每一行就是一个“行框盒子”，每个“行框盒子”又是由一个一个“内联盒子”组成的。
 
+  ![image](https://s10.mogucdn.com/mlcdn/c45406/180410_26f25k3iafibid5e3k8i70c579ji5_910x94.png)
+
 - 包含块（containing block）。例如：
 
     < p>这是一行普通的文字，这里有个 < em>em< /em> 标签。< /p>
 
-  `<p>`标签就是一个“包含盒子”，此盒子由一行一行的“行框盒子”组成。
+  `<p>`标签就是一个“包含盒子”，包含块由一行一行的“行框盒子”组成。
+
+  ![image](https://s10.mogucdn.com/mlcdn/c45406/180410_7ibf6i64l8fji48e8063l37gg2200_910x92.png)
 
 ## strut - 幽灵空白节点
 
@@ -159,7 +177,11 @@ css在我心中一直是玄学，因此一直希望遇见一本可以系统的�
 ## 基线
 
 字母x的下边缘（线）就是我们的基线
-`line-height`行高的定义就是两基线的间距，`vertical-align`的默认值就是基线
+
+`line-height`行高的定义就是两基线的间距
+
+`vertical-align`的默认值就是基线
+
 `x-height`，指的是字母x的高度，术语描述就是基线和等分线（meanline）（也称作中线，midline）之间的距离
 
 ![image](https://s10.mogucdn.com/mlcdn/c45406/180331_01f9g86a5719569dg53hd0gk1a013_906x358.png)
@@ -168,19 +190,21 @@ css在我心中一直是玄学，因此一直希望遇见一本可以系统的�
 
 ## line-height
 
-对于块级元素，它指定元素中线框的最小高度。在未替换的内联元素中，它指定用于计算线框高度的高度。对于替代行内元素，如 button 或其他 input 元素，line-height 没有影响（原文未提到，对于部分替代元素，line-height 依然可以影响元素的样式布局）
+对于块级元素，它指定元素中线框的最小高度。通过改变块级元素里面内联级别元素占据的高度来实现对块级元素最终高度的影响
+
+在未替换的内联元素中，它影响元素的可视高度。什么padding、border属性对可视高度是没有任何影响的，这也是我们平常口中的“盒模型”约定俗成说的是块级元素的原因。
+
+对于替代内联元素，如 button 或其他 input 元素，line-height 没有影响。（但是通过影响strut间接影响样式）
 
 默认值normal, 取决于用户代理。桌面浏览器（包括火狐浏览器）使用默认值，约为1.2，这取决于元素的 font-family。
 
 如果使用数值作为line-height的属性值，那么所有的子元素继承的都是这个值；但是，如果使用百分比值或者长度值作为属性值，那么所有的子元素继承的是最终的计算值
 
-对于非替换元素的纯内联元素，其可视高度完全由line-height决定。注意这里的措辞——“完全”，什么padding、border属性对可视高度是没有任何影响的，这也是我们平常口中的“盒模型”约定俗成说的是块级元素的原因。
-
 内联元素的高度由固定高度和不固定高度组成，这个不固定的部分就是这里的“行距”。换句话说，line-height之所以起作用，就是通过改变“行距”来实现的。
 
-行距 = 行高−em-box。转换成CSS语言就是：行距 = line-height - font-size。em是一个相对font-size大小的CSS单位，因此1em等用于当前一个font-size大小
+行距 = 行高−(em-box)。转换成CSS语言就是：行距 = line-height - font-size。em是一个相对font-size大小的CSS单位，因此1em等用于当前一个font-size大小
 
-内容区域可以近似理解为Firefox/IE浏览器下文本选中带背景色的区域
+强调：
 
 - `line-height`不能影响内联替换元素，有时候看到的表象的影响其实是影响了行框盒子里的“幽灵空白节点”
 - 替换元素和内联非替换元素在一起时，由于同属内联元素，因此，会共同形成一个“行框盒子”，line-height在这个混合元素的“行框盒子”中扮演的角色是决定这个行盒的最小高度。例子：明明文字设置了line-height为20px，但是，如果文字后面有小图标，最后“行框盒子”高度却是21px或是22px。这种现象背后最大的黑手其实是vertical-align属性
@@ -366,7 +390,7 @@ clear属性只有块级元素才有效的，而::after等伪元素默认都是�
 
 我经历过很多设置`z-index:99999`元素还是被挡住的悲剧，曾不能理解为啥`z-index`更大值的元素被更小值元素覆盖的现象。
 
-[https://codepen.io/anon/pen/KoeNZr](https://codepen.io/anon/pen/KoeNZr)
+[https://codepen.io/echizen/pen/OvdqWP?editors=1100](https://codepen.io/echizen/pen/OvdqWP?editors=1100)
 
 z-index属性只有和定位元素（position不为static的元素）在一起的时候才有作用，flex盒子的子元素也可以设置z-index属性
 
