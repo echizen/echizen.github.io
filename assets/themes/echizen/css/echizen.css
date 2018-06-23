@@ -470,3 +470,9 @@ body{
   width: 160px;
   height: 160px;
 }
+
+blockquote {
+    font-size: 14px;
+    color: #efefef;
+    border-left: 2px solid #eee;
+}
