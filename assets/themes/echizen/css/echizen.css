@@ -232,7 +232,6 @@ p{
     font-size: 26px;
     height: 60px;
     line-height: 60px;
-    padding-left: 25px;
     color: #fff;
     z-index: 10;
     position: fixed;
@@ -240,6 +239,10 @@ p{
     left: 0px;
     right: 0px;
     text-align: center;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .title_wrap img{
@@ -247,14 +250,19 @@ p{
     box-shadow: none;
 }
 
-.title_wrap{
-    padding-left: 20px;
-    padding-right: 20px;
-    overflow: hidden;
-    width: 100%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: block;
+@media (max-width: 480px) {
+    .title_wrap{
+        -webkit-box-shadow: inset 0px 0px 50px 8px #CCFFCC;
+        -moz-box-shadow: inset 0px 0px 50px 8px #CCFFCC;
+        box-shadow: inset 0px 0px 50px 8px #CCFFCC;
+        font-size: 18px;
+        height: 45px;
+        line-height: 45px;
+    } 
+    .title_wrap img{
+        width: 35px;
+        box-shadow: none;
+    }
 }
 
 .what{
