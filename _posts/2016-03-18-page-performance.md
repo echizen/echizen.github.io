@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "页面性能问题整理"
-description: "learn page performance, use chrome timeline"
+title: "从浏览器渲染看页面性能优化"
+description: "learn page performance, use chrome timeline，页面性能，从浏览器渲染看页面性能优化"
 category: tech
 tags: [performance]
 ---
