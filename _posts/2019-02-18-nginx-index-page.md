@@ -150,7 +150,7 @@ server {
   root /Users/echizen/demo/nginx-learn/site1;
 
   location = / {
-    try_files /static/index.html index.html;
+    try_files /static/index.html index.html $uri=404;
   }
 
   location /static/ {
@@ -174,7 +174,7 @@ server {
   root /Users/echizen/demo/nginx-learn/site1;
 
   location = / {
-    try_files /static/index.html index.html;
+    try_files /static/index.html index.html $uri=404;
   }
 
   location / {
@@ -188,6 +188,8 @@ server {
 ```
 
 不过这也不是最优方案，因为所有请求都会先去匹配`/static/$uri`, 性能再高也是要去判断文件是否存在的，是个消耗。只是对于我的场景，内网应用，保持一致的习惯接入用户最小的改动比一点点的性能损耗来说是合适的。
+
+可见最终这个nginx层对开发来说无感知，只是要求如果想使用nginx的能力就把静态资源放站点的`/static`路径就好，如果不使用这个不走nginx配置指定的首页，请求也会走到node服务的接口。
 
 ## 残留的疑惑
 
