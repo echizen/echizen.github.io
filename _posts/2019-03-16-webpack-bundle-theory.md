@@ -88,3 +88,5 @@ webpack的打包原理是怎样，其实刨除loader\plugin的核心功能实现
   - 将两部分字符串代码片段合成
 
 核心是打包工具自己实现的依赖加载器require，require里创造的module变量来记录fn调用后返回的结果，babel转完后，如果有返回值会挂到exports的变量上，着这里被module.exports接收，并作为require函数的返回，所以require函数的返回是执行对应的文件后所获得的该文件export出来的内容，localRequire里将这个值返回出来也就是原文件import 需要得到的值，供原文件引用。
+
+想想17年我做vue转小程序的vx打包工具时，并不了解这样的打包实现，但是也是用了相同的方式，babel分析ast得到依赖图，再对每个依赖递归处理，技术贵重的是思路啊。
