@@ -146,4 +146,8 @@ tags: ['vue']
 
 简单版的`defineReactive`、`Dep`、`Watcher`加持后，响应式数据部分完成了，这个流程是数据-视图的流动，保证了通过`vm.text=`调用数据更新时，触发`Watcher`里的`update`方法更新相应节点dom内容；而视图-数据的反应，则是通过事件绑定来完成的，初次渲染视图时，就对视图里`v-model`的节点做了事件监听，保证`input`事件触发时，能将用户输入的数据及时反映到数据层`vm`的对应data上。
 
+流程图展示就是：
+
+![](https://upload-images.jianshu.io/upload_images/3360875-4428cd8a2fdc4fac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/730/format/webp)
+
 这样就是一个双向绑定的简单实现了，当然这里只为了展现这个核心原理，vue中的真实处理要比这精细的多，不会有各种判断的硬编码，兼容各种节点类型各种情况。更新视图也没有这么简单直接调用`this.node.nodeValue`或者`this.node.value`直接赋值，而是有个批量`patch`的过程，将一个事件循环周期内需要更新的内容先收集起来，再一次性更新来提高性能。不过看完后，是否有了双向绑定我也能实现的感觉呢，并不是多么神密的设计哦。
