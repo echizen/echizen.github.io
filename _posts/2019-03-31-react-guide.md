@@ -32,6 +32,7 @@ react16以前的设计，解释了各种组件类型的实现、渲染、更新�
 介绍了fiber架构设计，协同和更新2个阶段，scheduling和work部分，fiber节点的构成等重要概念，不过没有连成整体。
 
 # react Components,Elements,Instances
+
 [https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html](https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html)
 
 介绍了`Components`, `Elements`, 和 `Instances`这3个基础元素的含义和实现以及联系。
