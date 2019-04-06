@@ -45,9 +45,9 @@ Fiber算法的拆分单位是fiber（fiber tree上的一个节点），实际上
 
 ## reconciler和commit
 
-React组件渲染分为两个阶段：reconciler、commit
+React组件渲染分为两个阶段：reconciler（有些地方称为render）、commit
 
-- 协调reconcile：对Virtual DOM操作阶段，对应到新的调度算法中，就是通过 Diff Fiber Tree 找出要做的更新工作。这是一个js计算过程，计算结果可以被缓存，计算过程可以被打断，也可以恢复执行。
+- 协调reconcile(render)：对Virtual DOM操作阶段，对应到新的调度算法中，就是通过 Diff Fiber Tree 找出要做的更新工作。这是一个js计算过程，计算结果可以被缓存，计算过程可以被打断，也可以恢复执行。
   所以，react介绍 Fiber Reconciler 调度算法时，有提到新算法具有可拆分、可中断任务的新特性，就是因为这部分的工作是一个纯js计算过程，所以是可以被缓存、被打断和恢复的
 
 - 提交更新commit: 渲染阶段，拿到更新工作，提交更新并调用对应渲染模块（react-dom）进行渲染。为了防止页面抖动，该过程是同步且不能被打断。
