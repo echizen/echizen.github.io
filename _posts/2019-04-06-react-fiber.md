@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "react16 fiber协调算法"
+title: "react16-fiber协调算法"
 description: "react16 fiber协调算法的实现，fiberNode diff"
 category: tech
 tags: ['react']
 ---
 {% include JB/setup %}
 
-是的，都9012年了，我还在写fiber，因为我2个月前才看。。。
+是的，都9012年了，我还在写fiber，因为我2个月前才认真看。。。
 
 react是一个非常有革命性的框架，其开发者非常具有创新意识，在当年开创react时创造了view=f(data)，设计用函数式的模式让data直接反应视图。使用vdom diff来提高组件更新性能（虽不是首创）。在react15已经大范围普及的情况下，又做出了颠覆式的更新，react16 变更的东西非常多，很多地方就是推翻再来，譬如fiber 算法，不是局限于通过更优的算法来提升性能，而是结合浏览器现状，使用`requestAnimationFrame`和`requestIdleCallback`在浏览器空闲时碎片化分步更新内容，来达到更优的体验。
 
